@@ -14,10 +14,27 @@ type TranslationKeys = {
   hero_register: string;
   hero_contact: string;
 
+  // Stats
+  stats_years: string;
+  stats_students: string;
+  stats_medals: string;
+  stats_locations: string;
+
   // About
   about_title: string;
   about_p1: string;
   about_p2: string;
+
+  // Why Choose Us
+  why_title: string;
+  why_certified: string;
+  why_certified_desc: string;
+  why_small_class: string;
+  why_small_class_desc: string;
+  why_competition: string;
+  why_competition_desc: string;
+  why_structured: string;
+  why_structured_desc: string;
 
   // Schedule
   schedule_title: string;
@@ -30,6 +47,9 @@ type TranslationKeys = {
 
   // Achievements
   achievements_title: string;
+
+  // Testimonials
+  testimonials_title: string;
 
   // Videos
   videos_title: string;
@@ -69,9 +89,24 @@ export const translations: Record<Language, TranslationKeys> = {
     hero_register: 'Register Now',
     hero_contact: 'Contact Us',
 
+    stats_years: 'Years Experience',
+    stats_students: 'Students Trained',
+    stats_medals: 'Medals Won',
+    stats_locations: 'Training Locations',
+
     about_title: 'About Our Academy',
     about_p1: 'Victorious Badminton Academy is committed to developing the badminton skills and talents of our students. With experienced coaches and structured training programs, we help students reach their full potential in badminton.',
     about_p2: 'We offer high-quality training for all levels — from beginners to high-performing athletes.',
+
+    why_title: 'Why Choose Us',
+    why_certified: 'Certified Coaches',
+    why_certified_desc: 'All our coaches are BAM-certified with years of competitive and coaching experience.',
+    why_small_class: 'Small Class Sizes',
+    why_small_class_desc: 'Maximum 8 students per group ensures personalized attention and faster improvement.',
+    why_competition: 'Competition Track Record',
+    why_competition_desc: 'Our students consistently win medals at district, state, and national level tournaments.',
+    why_structured: 'Structured Training',
+    why_structured_desc: 'Progressive curriculum designed to develop technique, fitness, and game strategy.',
 
     schedule_title: 'Training Schedule',
     schedule_group_note: 'Group Class Schedule',
@@ -81,6 +116,8 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Close',
 
     achievements_title: 'Student Achievements',
+
+    testimonials_title: 'What Parents Say',
 
     videos_title: 'Training Videos',
 
@@ -115,9 +152,24 @@ export const translations: Record<Language, TranslationKeys> = {
     hero_register: '立即报名',
     hero_contact: '联系我们',
 
+    stats_years: '年经验',
+    stats_students: '名学生',
+    stats_medals: '枚奖牌',
+    stats_locations: '个训练地点',
+
     about_title: '关于我们的学院',
     about_p1: 'Victorious 羽毛球学院致力于培养学生的羽毛球技能和才华。凭借经验丰富的教练和系统化的训练计划，我们帮助学生在羽毛球运动中发挥最大潜力。',
     about_p2: '我们为所有水平的学生提供高质量的训练——从初学者到高水平运动员。',
+
+    why_title: '为什么选择我们',
+    why_certified: '认证教练',
+    why_certified_desc: '我们所有教练均获得 BAM 认证，拥有多年竞技和执教经验。',
+    why_small_class: '小班教学',
+    why_small_class_desc: '每组最多8名学生，确保个性化关注和更快进步。',
+    why_competition: '比赛成绩',
+    why_competition_desc: '我们的学生在区级、州级和全国级锦标赛中屡获奖牌。',
+    why_structured: '系统化训练',
+    why_structured_desc: '渐进式课程设计，注重技术、体能和比赛策略的全面发展。',
 
     schedule_title: '训练时间表',
     schedule_group_note: '团体课程时间表',
@@ -127,6 +179,8 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: '关闭',
 
     achievements_title: '学生成就',
+
+    testimonials_title: '家长反馈',
 
     videos_title: '训练视频',
 
@@ -161,9 +215,24 @@ export const translations: Record<Language, TranslationKeys> = {
     hero_register: 'Daftar Sekarang',
     hero_contact: 'Hubungi Kami',
 
+    stats_years: 'Tahun Pengalaman',
+    stats_students: 'Pelajar Dilatih',
+    stats_medals: 'Pingat Dimenangi',
+    stats_locations: 'Lokasi Latihan',
+
     about_title: 'Tentang Akademi Kami',
     about_p1: 'Victorious Badminton Academy komited untuk membangunkan kemahiran dan bakat badminton pelajar kami. Dengan jurulatih berpengalaman dan program latihan berstruktur, kami membantu pelajar mencapai potensi penuh mereka dalam sukan badminton.',
     about_p2: 'Kami menawarkan latihan berkualiti tinggi untuk semua peringkat — dari pemula hingga atlet berprestasi tinggi.',
+
+    why_title: 'Mengapa Pilih Kami',
+    why_certified: 'Jurulatih Bertauliah',
+    why_certified_desc: 'Semua jurulatih kami bertauliah BAM dengan pengalaman bertanding dan melatih selama bertahun-tahun.',
+    why_small_class: 'Kelas Kecil',
+    why_small_class_desc: 'Maksimum 8 pelajar setiap kumpulan memastikan perhatian peribadi dan peningkatan lebih cepat.',
+    why_competition: 'Rekod Pertandingan',
+    why_competition_desc: 'Pelajar kami sentiasa memenangi pingat di peringkat daerah, negeri, dan kebangsaan.',
+    why_structured: 'Latihan Berstruktur',
+    why_structured_desc: 'Kurikulum progresif yang direka untuk membangunkan teknik, kecergasan, dan strategi permainan.',
 
     schedule_title: 'Jadual Latihan',
     schedule_group_note: 'Jadual Kelas Berkumpulan',
@@ -173,6 +242,8 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Tutup',
 
     achievements_title: 'Pencapaian Pelajar',
+
+    testimonials_title: 'Kata Ibu Bapa',
 
     videos_title: 'Video Latihan',
 

@@ -2,6 +2,7 @@
 
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface AboutProps {
   language: Language;
@@ -9,9 +10,10 @@ interface AboutProps {
 
 export default function About({ language }: AboutProps) {
   const t = translations[language];
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" ref={ref} className="scroll-reveal py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.about_title}

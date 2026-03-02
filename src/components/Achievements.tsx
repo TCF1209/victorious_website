@@ -3,6 +3,7 @@
 import { Trophy } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface AchievementsProps {
   language: Language;
@@ -45,9 +46,10 @@ const achievements = [
 
 export default function Achievements({ language }: AchievementsProps) {
   const t = translations[language];
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="achievements" className="bg-light-gray py-20">
+    <section id="achievements" ref={ref} className="scroll-reveal bg-light-gray py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.achievements_title}

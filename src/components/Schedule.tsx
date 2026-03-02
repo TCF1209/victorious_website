@@ -4,6 +4,7 @@ import { MapPin, Clock } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { trainingLocations } from '@/data/schedule';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface ScheduleProps {
   language: Language;
@@ -11,9 +12,10 @@ interface ScheduleProps {
 
 export default function Schedule({ language }: ScheduleProps) {
   const t = translations[language];
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="schedule" className="bg-light-gray py-20">
+    <section id="schedule" ref={ref} className="scroll-reveal bg-light-gray py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.schedule_title}

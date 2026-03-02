@@ -5,6 +5,7 @@ import { X, Award } from 'lucide-react';
 import { Language, Coach } from '@/types';
 import { translations } from '@/data/translations';
 import { coaches } from '@/data/coaches';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface CoachesProps {
   language: Language;
@@ -13,9 +14,10 @@ interface CoachesProps {
 export default function Coaches({ language }: CoachesProps) {
   const [selectedCoach, setSelectedCoach] = useState<Coach | null>(null);
   const t = translations[language];
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="coaches" className="py-20">
+    <section id="coaches" ref={ref} className="scroll-reveal py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.coaches_title}

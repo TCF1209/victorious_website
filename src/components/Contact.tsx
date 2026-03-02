@@ -7,6 +7,7 @@ import { Language, ContactFormData } from '@/types';
 import { translations } from '@/data/translations';
 import { getWhatsAppUrl } from '@/lib/utils';
 import { trainingLocations } from '@/data/schedule';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface ContactProps {
   language: Language;
@@ -18,6 +19,7 @@ export default function Contact({ language }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
   const t = translations[language];
   const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>();
+  const ref = useScrollReveal<HTMLElement>();
 
   const onSubmit = (data: ContactFormData) => {
     console.log('Form submitted:', data);
@@ -25,7 +27,7 @@ export default function Contact({ language }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="bg-light-gray py-20">
+    <section id="contact" ref={ref} className="scroll-reveal bg-light-gray py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.contact_title}

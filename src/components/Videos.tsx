@@ -3,6 +3,7 @@
 import { Play } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface VideosProps {
   language: Language;
@@ -37,9 +38,10 @@ const videos = [
 
 export default function Videos({ language }: VideosProps) {
   const t = translations[language];
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="videos" className="py-20">
+    <section id="videos" ref={ref} className="scroll-reveal py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.videos_title}
