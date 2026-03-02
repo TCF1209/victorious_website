@@ -1,0 +1,49 @@
+'use client';
+
+import { MapPin, Clock } from 'lucide-react';
+import { Language } from '@/types';
+import { translations } from '@/data/translations';
+import { trainingLocations } from '@/data/schedule';
+
+interface ScheduleProps {
+  language: Language;
+}
+
+export default function Schedule({ language }: ScheduleProps) {
+  const t = translations[language];
+
+  return (
+    <section id="schedule" className="bg-light-gray py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
+          {t.schedule_title}
+        </h2>
+        <p className="mt-2 text-center text-sm font-medium text-gold">
+          {t.schedule_group_note}
+        </p>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {trainingLocations.map((location) => (
+            <div
+              key={location.id}
+              className="rounded-lg border-t-4 border-gold bg-white p-6 shadow-sm"
+            >
+              <div className="flex items-center gap-2 text-lg font-bold text-black">
+                <MapPin size={20} className="text-gold" />
+                {location.name}
+              </div>
+              <div className="mt-4 space-y-3">
+                {location.sessions.map((session, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-dark-gray">
+                    <Clock size={16} className="text-gold" />
+                    <span className="font-medium">{session.day[language]}</span>
+                    <span className="text-sm">{session.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

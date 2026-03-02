@@ -1,0 +1,488 @@
+# Victorious Badminton Academy - Demo Website Brief
+
+## 🎯 PROJECT OVERVIEW
+
+Build a professional, mobile-friendly demo website for **Victorious Badminton Academy**, a badminton training academy. This is a DEMO to show the client - if approved, project continues.
+
+**Primary Goal:** Replace long copy-paste messages to parents with a professional website that showcases the academy, coaches, achievements, and training details.
+
+**Target Audience:** Parents looking for badminton training for their children  
+**Primary Device:** Mobile phones (but must work well on desktop too)  
+**Languages:** English (default), 中文 (Chinese), Bahasa Malaysia - user can switch freely
+
+---
+
+## 🎨 DESIGN DIRECTION
+
+### Brand Colors (from logo)
+The logo has:
+- **Background:** White
+- **Text:** Black
+- **Accent:** Gold highlights
+
+**Color Palette:**
+```
+Primary Black: #000000 (headings, main text)
+Gold Accent: #D4AF37 or #FFD700 (buttons, highlights, achievements)
+White Background: #FFFFFF (main background)
+Dark Gray: #1F2937 (secondary text)
+Light Gray: #F3F4F6 (subtle backgrounds)
+```
+
+### Design Style
+**DO:**
+- ✅ Clean, professional, sporty
+- ✅ Modern but elegant (gold adds premium feel)
+- ✅ Focus on content (photos, achievements, coaches)
+- ✅ Mobile-first design
+- ✅ Natural, human design
+
+**DON'T:**
+- ❌ Overly AI-generated look
+- ❌ Too many gradients
+- ❌ Cluttered layouts
+- ❌ Heavy animations
+- ❌ Dark themes
+
+**Visual Theme:** "Professional Sports Academy with Premium Touch"
+- Think: Clean white background, black text, gold accents for achievements/CTAs
+- Athletic but polished
+- Trust-building and professional
+
+---
+
+## 📋 REQUIRED SECTIONS
+
+### 1. Hero Section
+**Purpose:** Strong first impression
+
+**Content:**
+- Academy name: "Victorious Badminton Academy"
+- Tagline: Something inspiring about badminton training (e.g., "Membentuk Juara Masa Depan" / "Building Future Champions")
+- CTA Buttons:
+  - "Daftar Sekarang" (Register Now) - Gold button
+  - "Hubungi Kami" (Contact Us) - Black outline button
+- Background: Athletic badminton image or training photo
+
+**Design:**
+- Clean, spacious layout
+- Large, bold text
+- Professional sports imagery
+- Mobile-optimized
+
+---
+
+### 2. About Academy
+**Purpose:** Brief introduction to build trust
+
+**Content (placeholder for demo):**
+```
+Victorious Badminton Academy is committed to developing the badminton 
+skills and talents of our students. With experienced coaches and structured 
+training programs, we help students reach their full potential in badminton.
+
+We offer high-quality training for all levels - from beginners to 
+high-performing athletes.
+```
+
+**Design:**
+- 2-3 paragraphs
+- Maybe 2-column layout (text + image)
+- Keep it concise
+
+---
+
+### 3. Training Schedule & Locations ⭐ IMPORTANT
+
+**Purpose:** Clear info on where and when training happens
+
+**Training Locations & Times:**
+
+**Location 1: Giant, Bukit Tinggi**
+- Thursday: 4:00 PM - 6:00 PM
+- Sunday: 3:00 PM - 5:00 PM
+
+**Location 2: SBA Forum, Setia Alam**
+- Saturday: 9:00 AM - 11:00 AM
+- Sunday: 9:00 AM - 11:00 AM
+
+**Location 3: YTP Sports Arena**
+- Friday: 8:00 PM - 10:00 PM
+- Saturday: 3:00 PM - 5:00 PM
+- Sunday: 9:00 AM - 11:00 AM
+- Sunday: 3:00 PM - 5:00 PM
+
+**Note:** These are GROUP CLASS schedules
+
+**Design Ideas:**
+- Visual timetable/schedule cards
+- Each location in its own card with gold accent border
+- Clear, easy-to-scan format
+- Mobile-friendly (cards stack vertically on mobile)
+- Consider adding Google Maps links for each location (optional)
+
+**Display Format Example:**
+```
+[Card with gold top border]
+📍 Giant, Bukit Tinggi
+🗓️ Khamis: 4:00 PM - 6:00 PM
+🗓️ Ahad: 3:00 PM - 5:00 PM
+[View on Map button]
+```
+
+---
+
+### 4. Coaches Section ⭐ IMPORTANT
+
+**Purpose:** Showcase experienced coaches to build credibility
+
+**Requirements:**
+- Display **5 coaches** (use placeholder data for demo)
+- Each coach card shows:
+  - Photo (use placeholder sports/coach images)
+  - Name
+  - Brief title (e.g., "Head Coach", "Senior Coach")
+  - 1-2 key achievements (teaser)
+  - "Lihat Lebih Lanjut" / "View More" button
+
+**Click/Expand Behavior:**
+When user clicks a coach:
+- Open modal/expanded view OR navigate to detail page
+- Show full list of achievements
+- Show more details about coaching experience
+- Professional bio
+
+**Why this approach:**
+Some coaches have many achievements - too long to display all at once. This keeps the main page clean while allowing detailed info on demand.
+
+**Placeholder Coach Structure:**
+```javascript
+{
+  name: "Coach Ahmad bin Ali",
+  title: "Head Coach",
+  photo: "[placeholder]",
+  featured_achievements: [
+    "Former National Player",
+    "10+ Years Coaching Experience"
+  ],
+  full_achievements: [
+    "Former Malaysian National Team Player (2010-2015)",
+    "SEA Games Bronze Medalist (2013)",
+    "Coached multiple state champions",
+    "Certified Level 3 Badminton Coach",
+    "10+ years coaching experience",
+    // ... more achievements
+  ],
+  bio: "Coach Ahmad has dedicated over a decade to developing young badminton talent..."
+}
+```
+
+**Design:**
+- Grid layout (2-3 coaches per row on desktop, 1 per row on mobile)
+- Professional coach photos
+- Gold accent for "View More" button
+- Clean modal/detail page design
+
+---
+
+### 5. Student Achievements ⭐ IMPORTANT
+
+**Purpose:** Social proof - show results/success
+
+**Content:**
+- Display **3-5 photos** of students with awards/achievements
+- Each photo should have caption explaining the achievement
+
+**Photo Categories (examples for demo):**
+- Students holding trophies
+- Award ceremonies
+- Competition victories
+- Certificates/medals
+
+**Display Format:**
+- Gallery grid (2-3 columns on desktop, 1-2 on mobile)
+- Each image with caption
+- Gold frame/border around images (subtle)
+- Lightbox view when clicked (optional)
+
+**Caption Examples:**
+```
+"Muhammad Amin - Juara Kejohanan Negeri U12, 2024"
+"Team Victorious - Pingat Emas Pertandingan Antara Sekolah"
+"Siti Nurhaliza - Wakil Negeri Kejohanan Kebangsaan"
+```
+
+---
+
+### 6. Training Videos
+
+**Purpose:** Show actual training in action
+
+**Requirements:**
+- Display **2-3 training videos**
+- Videos could show:
+  - Training sessions
+  - Technique demonstrations
+  - Student progress
+  - Competition highlights
+
+**Implementation:**
+- HTML5 video player OR YouTube embeds
+- Responsive video sizing
+- Clean, professional presentation
+- Play controls visible
+
+**Layout:**
+- If 2 videos: Side by side on desktop, stacked on mobile
+- If 3 videos: 3-column grid on desktop, stacked on mobile
+- Gold accent frame around videos (subtle)
+
+**Placeholder:** 
+For demo, can use placeholder video boxes with play button icons if actual videos not provided yet.
+
+---
+
+### 7. Contact/Registration Section
+
+**Purpose:** Make it easy for parents to reach out
+
+**Contact Methods:**
+
+**WhatsApp (Most Important):**
+- Prominent WhatsApp button
+- Pre-filled message: 
+```
+"Saya berminat untuk mendaftar anak saya untuk latihan badminton di Victorious Badminton Academy. Boleh saya tahu lebih lanjut tentang kelas yang available?"
+```
+- WhatsApp number: [To be provided by client - use placeholder for demo]
+
+**Contact Form (Backup):**
+Simple form with fields:
+- Nama Ibu Bapa / Parent Name
+- Nama Anak / Student Name
+- Umur Anak / Student Age
+- No. Telefon / Phone Number
+- Lokasi Pilihan / Preferred Location (dropdown: Giant/SBA/YTP)
+- Mesej / Message (optional)
+
+Form submits to email (EmailJS) - for demo can just show success message
+
+**Contact Info Display:**
+- Phone number (click-to-call on mobile)
+- Email address
+- Operating hours (if available)
+
+**Design:**
+- Split layout (WhatsApp prominent on left, form on right)
+- Gold CTA buttons
+- Mobile-friendly form inputs
+- Clear, inviting design
+
+---
+
+### 8. Footer
+
+**Simple footer with:**
+- Academy name and tagline
+- Contact info (phone, email)
+- Training locations listed
+- Social media links (Facebook/Instagram - if available)
+- Copyright notice
+- Quick links to sections
+
+**Design:**
+- Clean, organized
+- Black background with white text and gold accents
+- Or white background with black text (test what looks better)
+
+---
+
+## 🔧 TECHNICAL REQUIREMENTS
+
+### Tech Stack
+```
+Framework: Next.js 15 (App Router)
+Language: TypeScript
+Styling: Tailwind CSS
+Icons: Lucide React
+Forms: React Hook Form
+Email: EmailJS (for contact form)
+Video: HTML5 video player or YouTube embed
+Image Gallery: React image component
+```
+
+### Must-Have Features
+- **Mobile-first responsive design** (test on 320px to 2000px+ widths)
+- Touch-friendly buttons (minimum 48x48px)
+- Fast loading (<3 seconds)
+- Smooth scrolling navigation
+- Click-to-call phone numbers
+- WhatsApp integration
+- Professional image optimization
+- Clean, semantic HTML
+
+### Performance
+- Optimize all images (WebP format)
+- Lazy load images and videos
+- Fast page load
+- Smooth animations (subtle only)
+
+---
+
+## 📱 MOBILE-FIRST CRITICAL REQUIREMENTS
+
+**MUST work perfectly on phones:**
+- ✅ All text readable (minimum 16px)
+- ✅ All buttons easy to tap (48x48px minimum)
+- ✅ Navigation simple and clear
+- ✅ Images load fast and look good
+- ✅ Videos play smoothly
+- ✅ Forms easy to fill on mobile keyboard
+- ✅ WhatsApp button always accessible
+- ✅ No horizontal scrolling
+- ✅ Fast performance on mobile data
+
+**Test on:**
+- iPhone (Safari)
+- Android (Chrome)
+- Small screens (320px width)
+- Tablet sizes (768px+)
+
+---
+
+## 🎯 SUCCESS CRITERIA
+
+**Visual/Design:**
+- ✅ Looks professional and trustworthy
+- ✅ Clean white background with black text and gold accents
+- ✅ Not overly "AI-generated" looking
+- ✅ Natural, human design
+- ✅ Athletic/sporty feel with premium touch
+
+**Functionality:**
+- ✅ All sections display correctly
+- ✅ Coach detail view works (click to expand)
+- ✅ Training schedule clearly visible
+- ✅ Videos play properly
+- ✅ Contact form works
+- ✅ WhatsApp button opens correctly
+
+**Mobile Experience:**
+- ✅ Perfect on phones (primary device)
+- ✅ Also works well on desktop
+- ✅ Touch-friendly interface
+- ✅ Fast loading on mobile
+
+**Content:**
+- ✅ 5 coaches with expandable details
+- ✅ 3-5 student achievement photos
+- ✅ 2-3 training videos
+- ✅ 3 training locations with schedules
+- ✅ Professional about section
+
+---
+
+## 📦 PLACEHOLDER CONTENT GUIDELINES
+
+Since this is a DEMO, use professional placeholder content:
+
+**Images:**
+- Use high-quality sports/badminton stock photos
+- Professional coach portraits (diverse representation)
+- Student achievement photos (generic sports awards)
+- Training facility photos
+
+**Coach Names (Malaysian context):**
+- Mix of Malay, Chinese, Indian names
+- Professional titles
+- Realistic achievements
+
+**Text Content:**
+- Professional, inspiring tone
+- Focus on development, achievement, professional coaching
+- Bahasa Malaysia primary, with some English
+
+**Videos:**
+- Can use placeholder video boxes for demo
+- Or find copyright-free badminton training clips
+
+---
+
+## 🚀 DELIVERABLES
+
+For this DEMO stage:
+
+1. **Fully functional website**
+   - All sections working
+   - Mobile-responsive
+   - Professional design
+
+2. **Deployed on Vercel**
+   - Live URL for client to review
+   - Fast loading
+
+3. **Clean codebase**
+   - Ready to expand if client approves
+   - Easy to update with real content
+
+---
+
+## 💡 DESIGN INSPIRATION KEYWORDS
+
+For visual reference:
+
+**Style:**
+- Nike Training Academy
+- Professional sports coaching
+- Clean, modern, athletic
+- Premium but accessible
+- Trust-building
+
+**Feel:**
+- Inspiring
+- Professional
+- Achievement-oriented
+- Welcoming to parents
+- Credible
+
+**NOT:**
+- Overly corporate
+- Too flashy/busy
+- Generic template look
+- Heavy AI-generated aesthetic
+
+---
+
+## 🎨 COMPONENT PRIORITIES
+
+**Most Important (spend time here):**
+1. ⭐⭐⭐ Coaches section (with expandable details)
+2. ⭐⭐⭐ Training schedule (clear, visual)
+3. ⭐⭐⭐ Mobile responsiveness
+4. ⭐⭐ Student achievements display
+5. ⭐⭐ Hero section
+6. ⭐ Videos section
+7. ⭐ Contact/form
+
+---
+
+## ✅ FINAL CHECKLIST
+
+Before showing client:
+
+- [ ] Looks professional and polished
+- [ ] Black text, white background, gold accents throughout
+- [ ] Works perfectly on mobile phones
+- [ ] All 5 coaches display with clickable details
+- [ ] 3-5 achievement photos display well
+- [ ] 2-3 video placeholders/embeds work
+- [ ] Training schedule for all 3 locations clear
+- [ ] WhatsApp button works
+- [ ] Contact form has validation
+- [ ] Fast loading
+- [ ] No bugs or broken layouts
+- [ ] Deployed and accessible via URL
+
+---
+
+**Build a clean, professional, mobile-first badminton academy website that showcases coaches, achievements, and training info. Focus on clarity, professionalism, and building trust with parents. Use white background, black text, and gold accents for a premium sports academy feel.**
