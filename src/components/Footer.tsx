@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Phone, Mail } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
@@ -26,8 +27,17 @@ export default function Footer({ language }: FooterProps) {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-bold text-gold">Victorious Badminton Academy</h3>
-            <p className="mt-2 text-sm text-gray-400">{t.footer_tagline}</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/victorious_logo.jpeg"
+                alt="Victorious Badminton Academy"
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
+              <h3 className="text-lg font-bold text-gold">Victorious Badminton Academy</h3>
+            </div>
+            <p className="mt-3 text-sm text-gray-400">{t.footer_tagline}</p>
           </div>
 
           {/* Quick Links */}

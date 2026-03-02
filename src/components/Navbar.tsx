@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
@@ -27,8 +28,15 @@ export default function Navbar({ language, onLanguageChange }: NavbarProps) {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="text-lg font-bold text-black">
-            Victorious
+          <a href="#" className="flex items-center gap-2">
+            <Image
+              src="/images/victorious_logo.jpeg"
+              alt="Victorious Badminton Academy"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+            <span className="text-lg font-bold text-black">Victorious</span>
           </a>
 
           {/* Desktop nav */}
