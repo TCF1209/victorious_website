@@ -9,7 +9,7 @@ interface StatsProps {
 }
 
 const stats = [
-  { key: 'stats_years' as const, value: 15, suffix: '+' },
+  { key: 'stats_years' as const, value: 10, suffix: '+' },
   { key: 'stats_students' as const, value: 500, suffix: '+' },
   { key: 'stats_medals' as const, value: 100, suffix: '+' },
   { key: 'stats_locations' as const, value: 3, suffix: '' },
