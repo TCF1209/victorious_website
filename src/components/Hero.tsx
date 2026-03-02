@@ -11,7 +11,7 @@ export default function Hero({ language }: HeroProps) {
   const t = translations[language];
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center bg-light-gray pt-16">
+    <section className="relative flex min-h-screen items-center justify-center bg-light-gray pb-16 pt-16">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <h1 className="hero-animate-heading text-4xl font-bold tracking-tight text-black sm:text-5xl md:text-6xl">
           Victorious Badminton Academy

@@ -34,9 +34,9 @@ export default function Stats({ language }: StatsProps) {
   const t = translations[language];
 
   return (
-    <section className="bg-gold py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+    <section className="relative z-10 -mt-10 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl rounded-2xl bg-gold py-10 shadow-lg">
+        <div className="grid grid-cols-2 gap-8 px-6 md:grid-cols-4">
           {stats.map((stat) => (
             <StatItem
               key={stat.key}
