@@ -15,6 +15,7 @@ interface CoachesProps {
 
 export default function Coaches({ language }: CoachesProps) {
   const [selectedCoach, setSelectedCoach] = useState<Coach | null>(null);
+  const [zoomedPhoto, setZoomedPhoto] = useState<string | null>(null);
   const t = translations[language];
   const ref = useScrollReveal<HTMLElement>();
 
@@ -31,7 +32,10 @@ export default function Coaches({ language }: CoachesProps) {
                 key={coach.id}
                 className="rounded-lg bg-white p-6 shadow-sm border border-gray-100"
               >
-                <div className="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-gold/30">
+                <button
+                  onClick={() => setZoomedPhoto(coach.photo)}
+                  className="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-gold/30 cursor-pointer transition-transform hover:scale-105"
+                >
                   <Image
                     src={coach.photo}
                     alt={coach.name}
@@ -39,7 +43,7 @@ export default function Coaches({ language }: CoachesProps) {
                     height={112}
                     className="h-full w-full object-cover"
                   />
-                </div>
+                </button>
                 <h3 className="mt-4 text-center text-lg font-bold text-black">
                   {coach.name}
                 </h3>
@@ -64,6 +68,24 @@ export default function Coaches({ language }: CoachesProps) {
           </div>
         </div>
       </section>
+
+      {/* Photo Lightbox */}
+      {zoomedPhoto && createPortal(
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setZoomedPhoto(null)}
+        >
+          <div className="relative h-[70vh] w-[70vh] max-h-[80vw] max-w-[80vw]">
+            <Image
+              src={zoomedPhoto}
+              alt="Coach photo"
+              fill
+              className="rounded-2xl object-cover"
+            />
+          </div>
+        </div>,
+        document.body
+      )}
 
       {/* Coach Detail Modal - portaled to body to avoid transform stacking context */}
       {selectedCoach && createPortal(
