@@ -14,6 +14,7 @@ import Testimonials from '@/components/Testimonials';
 import Videos from '@/components/Videos';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import FloatingSocials from '@/components/FloatingSocials';
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>('en');
@@ -34,6 +35,7 @@ export default function Home() {
         <Contact language={language} />
       </main>
       <Footer language={language} />
+      <FloatingSocials language={language} />
     </>
   );
 }

@@ -11,7 +11,7 @@ type TranslationKeys = {
 
   // Hero
   hero_tagline: string;
-  hero_register: string;
+  hero_view_schedule: string;
   hero_contact: string;
 
   // Stats
@@ -86,7 +86,7 @@ export const translations: Record<Language, TranslationKeys> = {
     nav_contact: 'Contact',
 
     hero_tagline: 'Building Future Champions',
-    hero_register: 'Register Now',
+    hero_view_schedule: 'View Schedule',
     hero_contact: 'Contact Us',
 
     stats_years: 'Years Experience',
@@ -149,7 +149,7 @@ export const translations: Record<Language, TranslationKeys> = {
     nav_contact: '联系我们',
 
     hero_tagline: '培养未来冠军',
-    hero_register: '立即报名',
+    hero_view_schedule: '查看课程表',
     hero_contact: '联系我们',
 
     stats_years: '年经验',
@@ -212,7 +212,7 @@ export const translations: Record<Language, TranslationKeys> = {
     nav_contact: 'Hubungi',
 
     hero_tagline: 'Membentuk Juara Masa Depan',
-    hero_register: 'Daftar Sekarang',
+    hero_view_schedule: 'Lihat Jadual',
     hero_contact: 'Hubungi Kami',
 
     stats_years: 'Tahun Pengalaman',

@@ -55,10 +55,10 @@ export default function Hero({ language }: HeroProps) {
         </p>
         <div className="hero-animate-buttons mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href="#contact"
+            href="#schedule"
             className="inline-flex min-h-[48px] items-center rounded-full bg-gold px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-gold-dark"
           >
-            {t.hero_register}
+            {t.hero_view_schedule}
           </a>
           <a
             href="#contact"

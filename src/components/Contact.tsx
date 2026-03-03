@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { MessageCircle, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { Language, ContactFormData } from '@/types';
 import { translations } from '@/data/translations';
 import { getWhatsAppUrl } from '@/lib/utils';
@@ -13,7 +13,7 @@ interface ContactProps {
   language: Language;
 }
 
-const WHATSAPP_PHONE = '60123456789'; // Placeholder
+const WHATSAPP_PHONE = '60176961795';
 
 export default function Contact({ language }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
@@ -22,7 +22,21 @@ export default function Contact({ language }: ContactProps) {
   const ref = useScrollReveal<HTMLElement>();
 
   const onSubmit = (data: ContactFormData) => {
-    console.log('Form submitted:', data);
+    const lines = [
+      `*${t.contact_title}*`,
+      ``,
+      `*${t.contact_parent_name}:* ${data.parentName}`,
+      `*${t.contact_student_name}:* ${data.studentName}`,
+      `*${t.contact_student_age}:* ${data.studentAge}`,
+      `*${t.contact_phone}:* ${data.phone}`,
+      `*${t.contact_preferred_location}:* ${data.preferredLocation}`,
+    ];
+    if (data.message) {
+      lines.push(`*${t.contact_message}:* ${data.message}`);
+    }
+    const message = lines.join('\n');
+    const url = getWhatsAppUrl(WHATSAPP_PHONE, message);
+    window.open(url, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
   };
 
@@ -32,28 +46,7 @@ export default function Contact({ language }: ContactProps) {
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.contact_title}
         </h2>
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          {/* WhatsApp */}
-          <div className="flex flex-col items-center justify-center rounded-lg bg-white p-8 shadow-sm">
-            <MessageCircle size={48} className="text-green-500" />
-            <h3 className="mt-4 text-xl font-bold text-black">WhatsApp</h3>
-            <p className="mt-2 text-center text-sm text-dark-gray">
-              {language === 'en' && 'Fastest way to reach us!'}
-              {language === 'zh' && '最快联系我们的方式！'}
-              {language === 'ms' && 'Cara terpantas untuk menghubungi kami!'}
-            </p>
-            <a
-              href={getWhatsAppUrl(WHATSAPP_PHONE, t.contact_whatsapp_message)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex min-h-[48px] items-center gap-2 rounded-full bg-green-500 px-8 py-3 font-semibold text-white transition-colors hover:bg-green-600"
-            >
-              <MessageCircle size={20} />
-              {t.contact_whatsapp}
-            </a>
-          </div>
-
-          {/* Contact Form */}
+        <div className="mx-auto mt-12 max-w-2xl">
           <div className="rounded-lg bg-white p-8 shadow-sm">
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center text-center">
