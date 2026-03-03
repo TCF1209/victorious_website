@@ -111,7 +111,7 @@ export default function Achievements({ language }: AchievementsProps) {
               return (
                 <div
                   key={achievement.id}
-                  className={`rounded-lg border-2 ${style.border}/20 bg-white p-4 shadow-sm`}
+                  className="rounded-lg border-2 border-black/15 bg-white p-4 shadow-sm"
                 >
                   <button
                     onClick={() => setZoomedImage(achievement.image)}
