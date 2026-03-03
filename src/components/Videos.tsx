@@ -32,7 +32,7 @@ export default function Videos({ language }: VideosProps) {
         </h2>
         <div className="mx-auto mt-12 flex justify-center">
           {videos.map((video) => (
-            <div key={video.id} className="w-full max-w-sm">
+            <div key={video.id} className="w-full max-w-xs">
               <div className="overflow-hidden rounded-2xl border-2 border-gold/20 bg-black shadow-lg">
                 <video
                   src={video.src}
