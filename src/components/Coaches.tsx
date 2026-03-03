@@ -34,7 +34,7 @@ export default function Coaches({ language }: CoachesProps) {
               >
                 <button
                   onClick={() => setZoomedPhoto(coach.photo)}
-                  className="mx-auto h-32 w-32 overflow-hidden rounded-full border-2 border-gold/30 cursor-pointer transition-transform hover:scale-105"
+                  className="mx-auto block h-32 w-32 overflow-hidden rounded-full border-2 border-gold/30 cursor-pointer transition-transform hover:scale-105"
                 >
                   <Image
                     src={coach.photo}
