@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Quote } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -76,6 +76,10 @@ export default function Testimonials({ language }: TestimonialsProps) {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
   }, []);
 
+  const prev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
+
   useEffect(() => {
     const timer = setInterval(next, 5000);
     return () => clearInterval(timer);
@@ -90,25 +94,48 @@ export default function Testimonials({ language }: TestimonialsProps) {
           {t.testimonials_title}
         </h2>
         <div className="mx-auto mt-12 max-w-3xl">
-          <div className="relative rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-            <Quote size={32} className="absolute top-4 left-4 text-gold/20" />
-            <p className="relative z-10 text-center text-lg italic text-dark-gray">
-              &ldquo;{testimonial.quote[language]}&rdquo;
-            </p>
-            <div className="mt-6 text-center">
-              <p className="font-bold text-black">{testimonial.parent[language]}</p>
-              <p className="mt-1 text-sm font-medium text-gold">
-                {testimonial.achievement[language]}
+          <div className="relative flex items-center gap-3">
+            {/* Left arrow */}
+            <button
+              onClick={prev}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-dark-gray shadow-sm transition-colors hover:border-gold hover:text-gold"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Quote card */}
+            <div className="relative flex-1 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+              <Quote size={32} className="absolute top-4 left-4 text-gold/20" />
+              <p className="relative z-10 text-center text-lg italic text-dark-gray">
+                &ldquo;{testimonial.quote[language]}&rdquo;
               </p>
+              <div className="mt-6 text-center">
+                <p className="font-bold text-black">{testimonial.parent[language]}</p>
+                <p className="mt-1 text-sm font-medium text-gold">
+                  {testimonial.achievement[language]}
+                </p>
+              </div>
             </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={next}
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-dark-gray shadow-sm transition-colors hover:border-gold hover:text-gold"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
+
+          {/* Dots */}
           <div className="mt-6 flex justify-center gap-2">
             {testimonials.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className={`h-3 w-3 rounded-full transition-colors ${
-                  idx === activeIndex ? 'bg-gold' : 'bg-gray-300'
+                className={`h-3 rounded-full transition-all duration-300 ${
+                  idx === activeIndex ? 'w-8 bg-gold' : 'w-3 bg-gray-300'
                 }`}
                 aria-label={`Testimonial ${idx + 1}`}
               />
