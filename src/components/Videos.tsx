@@ -12,6 +12,7 @@ const videos = [
   {
     id: '1',
     src: '/images/training_video/training-1.mp4',
+    poster: '/images/training_video/video_poster.jpeg',
     title: {
       en: 'Mastering Forehand & Backhand — Training Program',
       zh: '正手与反手训练课程',
@@ -36,6 +37,7 @@ export default function Videos({ language }: VideosProps) {
               <div className="overflow-hidden rounded-2xl border-2 border-gold/20 bg-black shadow-lg">
                 <video
                   src={video.src}
+                  poster={video.poster}
                   controls
                   playsInline
                   preload="metadata"
