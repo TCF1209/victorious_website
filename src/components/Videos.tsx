@@ -1,6 +1,5 @@
 'use client';
 
-import { Play } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -12,26 +11,11 @@ interface VideosProps {
 const videos = [
   {
     id: '1',
+    src: '/images/training_video/training-1.mp4',
     title: {
-      en: 'Training Session Highlights',
-      zh: '训练课程精彩片段',
-      ms: 'Sorotan Sesi Latihan',
-    },
-  },
-  {
-    id: '2',
-    title: {
-      en: 'Technique Demonstration',
-      zh: '技术示范',
-      ms: 'Demonstrasi Teknik',
-    },
-  },
-  {
-    id: '3',
-    title: {
-      en: 'Competition Highlights',
-      zh: '比赛精彩片段',
-      ms: 'Sorotan Pertandingan',
+      en: 'Mastering Forehand & Backhand — Training Program',
+      zh: '正手与反手训练课程',
+      ms: 'Menguasai Forehand & Backhand — Program Latihan',
     },
   },
 ];
@@ -46,15 +30,21 @@ export default function Videos({ language }: VideosProps) {
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.videos_title}
         </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-12 flex justify-center">
           {videos.map((video) => (
-            <div key={video.id} className="group">
-              <div className="flex aspect-video items-center justify-center rounded-lg border-2 border-gold/20 bg-light-gray transition-colors group-hover:border-gold/40">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gold/90 text-white transition-transform group-hover:scale-110">
-                  <Play size={28} fill="white" />
-                </div>
+            <div key={video.id} className="w-full max-w-sm">
+              <div className="overflow-hidden rounded-2xl border-2 border-gold/20 bg-black shadow-lg">
+                <video
+                  src={video.src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-[9/16] w-full object-cover"
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
-              <p className="mt-3 text-center text-sm font-medium text-dark-gray">
+              <p className="mt-4 text-center text-sm font-medium text-dark-gray">
                 {video.title[language]}
               </p>
             </div>
