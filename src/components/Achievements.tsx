@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import { Trophy } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -11,41 +12,83 @@ interface AchievementsProps {
   language: Language;
 }
 
+type PlacementType = 'champion' | '1st_runner_up' | '2nd_runner_up';
+
+const placementStyles: Record<PlacementType, { bg: string; text: string; border: string }> = {
+  champion: { bg: 'bg-gold/10', text: 'text-gold', border: 'border-gold' },
+  '1st_runner_up': { bg: 'bg-gray-100', text: 'text-gray-500', border: 'border-gray-400' },
+  '2nd_runner_up': { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-600' },
+};
+
+const placementLabel: Record<PlacementType, Record<Language, string>> = {
+  champion: { en: 'Champion', zh: '冠军', ms: 'Juara' },
+  '1st_runner_up': { en: '1st Runner-up', zh: '亚军', ms: 'Naib Johan' },
+  '2nd_runner_up': { en: '2nd Runner-up', zh: '季军', ms: 'Naib Johan Kedua' },
+};
+
 const achievements = [
   {
     id: '1',
     image: '/images/student_achievements/Tan_Jayden_Kejohanan_Badminton_Piala_Datuk_Bandar_MBDK_2025_Boy_Double_13_Champion.jpeg',
-    caption: {
-      en: 'Tan Jayden — Kejohanan Badminton Piala Datuk Bandar MBDK 2025, Boy Double U13 Champion',
-      zh: 'Tan Jayden — 2025年MBDK拿督市长杯羽毛球锦标赛，男子U13双打冠军',
-      ms: 'Tan Jayden — Kejohanan Badminton Piala Datuk Bandar MBDK 2025, Juara Beregu Lelaki B13',
+    placement: 'champion' as PlacementType,
+    name: 'Tan Jayden',
+    category: {
+      en: 'Boy Double U13',
+      zh: '男子U13双打',
+      ms: 'Beregu Lelaki B13',
+    },
+    tournament: {
+      en: 'Kejohanan Badminton Piala Datuk Bandar MBDK 2025',
+      zh: '2025年MBDK拿督市长杯羽毛球锦标赛',
+      ms: 'Kejohanan Badminton Piala Datuk Bandar MBDK 2025',
     },
   },
   {
     id: '2',
     image: '/images/student_achievements/Chang_Sven_Sen_Astrox_Tournament_2026_2nd_Runner_up.jpeg',
-    caption: {
-      en: 'Chang Sven Sen — Astrox Tournament 2026, 2nd Runner-up',
-      zh: 'Chang Sven Sen — 2026年Astrox锦标赛，季军',
-      ms: 'Chang Sven Sen — Kejohanan Astrox 2026, Naib Johan Kedua',
+    placement: '2nd_runner_up' as PlacementType,
+    name: 'Chang Sven Sen',
+    category: {
+      en: '',
+      zh: '',
+      ms: '',
+    },
+    tournament: {
+      en: 'Astrox Tournament 2026',
+      zh: '2026年Astrox锦标赛',
+      ms: 'Kejohanan Astrox 2026',
     },
   },
   {
     id: '3',
     image: '/images/student_achievements/Lim_Jayden_Klang_Master_Challenge_Badminton_Tournament_2026_Boy_Double_17_1st_Runner_Up.jpeg',
-    caption: {
-      en: 'Lim Jayden — Klang Master Challenge Badminton Tournament 2026, Boy Double U17 1st Runner-up',
-      zh: 'Lim Jayden — 2026年巴生大师挑战赛羽毛球锦标赛，男子U17双打亚军',
-      ms: 'Lim Jayden — Kejohanan Badminton Klang Master Challenge 2026, Naib Johan Beregu Lelaki B17',
+    placement: '1st_runner_up' as PlacementType,
+    name: 'Lim Jayden',
+    category: {
+      en: 'Boy Double U17',
+      zh: '男子U17双打',
+      ms: 'Beregu Lelaki B17',
+    },
+    tournament: {
+      en: 'Klang Master Challenge Badminton Tournament 2026',
+      zh: '2026年巴生大师挑战赛羽毛球锦标赛',
+      ms: 'Kejohanan Badminton Klang Master Challenge 2026',
     },
   },
   {
     id: '4',
     image: '/images/student_achievements/Lok_Zhi_Hui_Four_Season_Badminton_Championship_Girl_Single_U18_2nd_Runner_Up.jpeg',
-    caption: {
-      en: 'Lok Zhi Hui — Four Season Badminton Championship, Girl Single U18 2nd Runner-up',
-      zh: 'Lok Zhi Hui — 四季羽毛球锦标赛，女子U18单打季军',
-      ms: 'Lok Zhi Hui — Kejohanan Badminton Four Season, Naib Johan Kedua Perseorangan Perempuan B18',
+    placement: '2nd_runner_up' as PlacementType,
+    name: 'Lok Zhi Hui',
+    category: {
+      en: 'Girl Single U18',
+      zh: '女子U18单打',
+      ms: 'Perseorangan Perempuan B18',
+    },
+    tournament: {
+      en: 'Four Season Badminton Championship',
+      zh: '四季羽毛球锦标赛',
+      ms: 'Kejohanan Badminton Four Season',
     },
   },
 ];
@@ -63,29 +106,44 @@ export default function Achievements({ language }: AchievementsProps) {
             {t.achievements_title}
           </h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {achievements.map((achievement) => (
-              <div
-                key={achievement.id}
-                className="rounded-lg border-2 border-gold/20 bg-white p-4 shadow-sm"
-              >
-                <button
-                  onClick={() => setZoomedImage(achievement.image)}
-                  className="block w-full cursor-pointer overflow-hidden rounded"
+            {achievements.map((achievement) => {
+              const style = placementStyles[achievement.placement];
+              return (
+                <div
+                  key={achievement.id}
+                  className={`rounded-lg border-2 ${style.border}/20 bg-white p-4 shadow-sm`}
                 >
-                  <div className="relative aspect-square">
-                    <Image
-                      src={achievement.image}
-                      alt={achievement.caption.en}
-                      fill
-                      className="object-cover object-top transition-transform hover:scale-105"
-                    />
+                  <button
+                    onClick={() => setZoomedImage(achievement.image)}
+                    className="block w-full cursor-pointer overflow-hidden rounded"
+                  >
+                    <div className="relative aspect-square">
+                      <Image
+                        src={achievement.image}
+                        alt={achievement.name}
+                        fill
+                        className="object-cover object-top transition-transform hover:scale-105"
+                      />
+                    </div>
+                  </button>
+                  <div className="mt-3 text-center">
+                    <p className="text-base font-bold text-black">{achievement.name}</p>
+                    <p className="mt-1 text-xs text-dark-gray">
+                      {achievement.tournament[language]}
+                    </p>
+                    {achievement.category[language] && (
+                      <p className="mt-0.5 text-xs text-dark-gray">
+                        {achievement.category[language]}
+                      </p>
+                    )}
+                    <span className={`mt-2 inline-flex items-center gap-1 rounded-full ${style.bg} px-3 py-1 text-xs font-bold ${style.text}`}>
+                      <Trophy size={12} />
+                      {placementLabel[achievement.placement][language]}
+                    </span>
                   </div>
-                </button>
-                <p className="mt-3 text-center text-sm font-medium text-dark-gray">
-                  {achievement.caption[language]}
-                </p>
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
