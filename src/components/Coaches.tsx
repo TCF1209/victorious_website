@@ -58,11 +58,11 @@ export default function Coaches({ language }: CoachesProps) {
       {/* Coach Detail Modal */}
       {selectedCoach && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 md:items-center md:p-4"
           onClick={() => setSelectedCoach(null)}
         >
           <div
-            className="max-h-[80vh] w-full max-w-lg overflow-y-auto rounded-lg bg-white p-6"
+            className="max-h-[85vh] w-full overflow-y-auto rounded-t-2xl bg-white p-6 md:max-w-lg md:rounded-lg"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">
