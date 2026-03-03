@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import Image from 'next/image';
 import { X, Award } from 'lucide-react';
 import { Language, Coach } from '@/types';
 import { translations } from '@/data/translations';
@@ -24,14 +25,20 @@ export default function Coaches({ language }: CoachesProps) {
           <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
             {t.coaches_title}
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {coaches.map((coach) => (
               <div
                 key={coach.id}
                 className="rounded-lg bg-white p-6 shadow-sm border border-gray-100"
               >
-                <div className="mx-auto h-24 w-24 rounded-full bg-light-gray flex items-center justify-center">
-                  <Award size={32} className="text-gold" />
+                <div className="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-gold/30">
+                  <Image
+                    src={coach.photo}
+                    alt={coach.name}
+                    width={112}
+                    height={112}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <h3 className="mt-4 text-center text-lg font-bold text-black">
                   {coach.name}
@@ -68,19 +75,32 @@ export default function Coaches({ language }: CoachesProps) {
             className="max-h-[85vh] w-full overflow-y-auto rounded-t-2xl bg-white p-6 md:max-w-lg md:rounded-lg"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between">
-              <h3 className="text-xl font-bold text-black">{selectedCoach.name}</h3>
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-4">
+                <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-gold/30">
+                  <Image
+                    src={selectedCoach.photo}
+                    alt={selectedCoach.name}
+                    width={64}
+                    height={64}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black">{selectedCoach.name}</h3>
+                  <p className="text-sm font-medium text-gold">
+                    {selectedCoach.title[language]}
+                  </p>
+                </div>
+              </div>
               <button
                 onClick={() => setSelectedCoach(null)}
-                className="p-2"
+                className="shrink-0 p-2"
                 aria-label="Close"
               >
                 <X size={24} />
               </button>
             </div>
-            <p className="text-sm font-medium text-gold">
-              {selectedCoach.title[language]}
-            </p>
             <p className="mt-4 text-dark-gray">{selectedCoach.bio[language]}</p>
             <h4 className="mt-6 font-bold text-black">Achievements</h4>
             <ul className="mt-2 space-y-2">
