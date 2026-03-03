@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Award } from 'lucide-react';
 import { Language, Coach } from '@/types';
 import { translations } from '@/data/translations';
@@ -17,46 +18,48 @@ export default function Coaches({ language }: CoachesProps) {
   const ref = useScrollReveal<HTMLElement>();
 
   return (
-    <section id="coaches" ref={ref} className="scroll-reveal py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
-          {t.coaches_title}
-        </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {coaches.map((coach) => (
-            <div
-              key={coach.id}
-              className="rounded-lg bg-white p-6 shadow-sm border border-gray-100"
-            >
-              <div className="mx-auto h-24 w-24 rounded-full bg-light-gray flex items-center justify-center">
-                <Award size={32} className="text-gold" />
-              </div>
-              <h3 className="mt-4 text-center text-lg font-bold text-black">
-                {coach.name}
-              </h3>
-              <p className="text-center text-sm font-medium text-gold">
-                {coach.title[language]}
-              </p>
-              <ul className="mt-4 space-y-1">
-                {coach.featuredAchievements[language].map((achievement, idx) => (
-                  <li key={idx} className="text-sm text-dark-gray">
-                    • {achievement}
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={() => setSelectedCoach(coach)}
-                className="mt-4 w-full min-h-[48px] rounded-full border-2 border-gold px-4 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-white"
+    <>
+      <section id="coaches" ref={ref} className="scroll-reveal py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
+            {t.coaches_title}
+          </h2>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {coaches.map((coach) => (
+              <div
+                key={coach.id}
+                className="rounded-lg bg-white p-6 shadow-sm border border-gray-100"
               >
-                {t.coaches_view_more}
-              </button>
-            </div>
-          ))}
+                <div className="mx-auto h-24 w-24 rounded-full bg-light-gray flex items-center justify-center">
+                  <Award size={32} className="text-gold" />
+                </div>
+                <h3 className="mt-4 text-center text-lg font-bold text-black">
+                  {coach.name}
+                </h3>
+                <p className="text-center text-sm font-medium text-gold">
+                  {coach.title[language]}
+                </p>
+                <ul className="mt-4 space-y-1">
+                  {coach.featuredAchievements[language].map((achievement, idx) => (
+                    <li key={idx} className="text-sm text-dark-gray">
+                      • {achievement}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={() => setSelectedCoach(coach)}
+                  className="mt-4 w-full min-h-[48px] rounded-full border-2 border-gold px-4 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-white"
+                >
+                  {t.coaches_view_more}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Coach Detail Modal */}
-      {selectedCoach && (
+      {/* Coach Detail Modal - portaled to body to avoid transform stacking context */}
+      {selectedCoach && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 md:items-center md:p-4"
           onClick={() => setSelectedCoach(null)}
@@ -95,8 +98,9 @@ export default function Coaches({ language }: CoachesProps) {
               {t.coaches_close}
             </button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
-    </section>
+    </>
   );
 }
