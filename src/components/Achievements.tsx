@@ -169,8 +169,8 @@ export default function Achievements({ language }: AchievementsProps) {
           </h3>
 
           {[
-            { label: t.achievements_junior_players, students: studentAchievements.filter((s) => parseInt(s.age) < 18) },
-            { label: t.achievements_senior_players, students: studentAchievements.filter((s) => parseInt(s.age) >= 18) },
+            { label: t.achievements_junior_players, students: studentAchievements.filter((s) => parseInt(s.age) < 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
+            { label: t.achievements_senior_players, students: studentAchievements.filter((s) => parseInt(s.age) >= 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
           ].map((group) => (
             <div key={group.label} className="mt-8">
               <h4 className="mb-3 text-lg font-bold text-gold">{group.label}</h4>
