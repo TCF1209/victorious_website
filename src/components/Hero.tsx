@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
@@ -13,21 +13,60 @@ const heroImages = [
   '/images/hero/hero-1.jpeg',
   '/images/hero/hero-2.jpeg',
   '/images/hero/hero-3.jpeg',
+  '/images/hero/hero-4.jpeg',
+  '/images/hero/hero-5.jpeg',
+  '/images/hero/hero-6.jpeg',
+  '/images/hero/hero-7.jpeg',
 ];
+
+const AUTO_SCROLL_INTERVAL = 4000;
+const PAUSE_AFTER_INTERACTION = 8000;
 
 export default function Hero({ language }: HeroProps) {
   const t = translations[language];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const pauseUntilRef = useRef(0);
+  const touchStartRef = useRef(0);
+
+  const goTo = useCallback((index: number) => {
+    setCurrentIndex(index);
+    pauseUntilRef.current = Date.now() + PAUSE_AFTER_INTERACTION;
+  }, []);
+
+  const goNext = useCallback(() => {
+    goTo((currentIndex + 1) % heroImages.length);
+  }, [currentIndex, goTo]);
+
+  const goPrev = useCallback(() => {
+    goTo((currentIndex - 1 + heroImages.length) % heroImages.length);
+  }, [currentIndex, goTo]);
 
   useEffect(() => {
     const timer = setInterval(() => {
+      if (Date.now() < pauseUntilRef.current) return;
       setCurrentIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3000);
+    }, AUTO_SCROLL_INTERVAL);
     return () => clearInterval(timer);
   }, []);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartRef.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+  };
+
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pb-16 pt-16">
+    <section
+      className="relative flex min-h-screen items-center justify-center overflow-hidden pb-16 pt-16"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Background images with crossfade */}
       {heroImages.map((src, index) => (
         <Image
@@ -73,7 +112,7 @@ export default function Hero({ language }: HeroProps) {
           {heroImages.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => setCurrentIndex(idx)}
+              onClick={() => goTo(idx)}
               className={`h-2 rounded-full transition-all duration-300 ${
                 idx === currentIndex ? 'w-8 bg-gold' : 'w-2 bg-white/50'
               }`}
