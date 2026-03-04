@@ -216,7 +216,7 @@ export const coaches: Coach[] = [
       ],
     },
     tournamentResults: [
-      'MSSD U18 2020: Boy Single 🥉',
+      'MSSD KLANG 2020: Boy Single Under 18 🥉',
       'Kejohanan Malaysia Sports League Peringkat Negeri Selangor 2022 (Team Event) 🥇',
       'Kejohanan Badminton Berpasukan Terbuka 2022 🥇',
       'MAH LAH KENG Badminton Championship 2022: Men Single Bakat Baru 🥇',
@@ -312,7 +312,7 @@ export const coaches: Coach[] = [
       '89 Arena 2nd Anniversary Badminton Tournament 2014: Boy Double Under 18 🥇',
       'MSSD KLANG 2013: Boy Double Under 18 🥉',
       '89 Arena 1st Anniversary Badminton Tournament 2013: Boy Single Under 18 🥉',
-      'Kejohanan Badminton KX-Remaja (KLANG) 2012: BDU18 🥇 BSU18 🥉',
+      'Kejohanan Badminton KX-Remaja (KLANG) 2012: Boy Double Under 18 🥇 Boy Single Under 18 🥉',
       'Kejohanan Badminton KX-Remaja (KLANG) 2011: Boy Double Under 16 🥇',
       'Kejohanan Badminton Bergu Terbuka Piala Teng Chang Khim: Boy Double Under 15 🥉',
       'Sports-Unite-MBA Junior Doubles Challenge 2010: Boy Double Under 14 🥇',
