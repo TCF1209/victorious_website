@@ -42,6 +42,12 @@ type TranslationKeys = {
 
   // Coaches
   coaches_title: string;
+  coaches_head_coach: string;
+  coaches_assistant_head_coach: string;
+  coaches_senior_coaches: string;
+  coaches_junior_coaches: string;
+  coaches_background: string;
+  coaches_tournament_results: string;
   coaches_view_more: string;
   coaches_close: string;
 
@@ -112,6 +118,12 @@ export const translations: Record<Language, TranslationKeys> = {
     schedule_group_note: 'Group Class Schedule',
 
     coaches_title: 'Our Coaches',
+    coaches_head_coach: 'Head Coach',
+    coaches_assistant_head_coach: 'Assistant Head Coach',
+    coaches_senior_coaches: 'Senior Coaches',
+    coaches_junior_coaches: 'Junior Coaches',
+    coaches_background: 'Background',
+    coaches_tournament_results: 'Tournament Results',
     coaches_view_more: 'View More',
     coaches_close: 'Close',
 
@@ -175,6 +187,12 @@ export const translations: Record<Language, TranslationKeys> = {
     schedule_group_note: '团体课程时间表',
 
     coaches_title: '我们的教练',
+    coaches_head_coach: '主教练',
+    coaches_assistant_head_coach: '助理主教练',
+    coaches_senior_coaches: '高级教练',
+    coaches_junior_coaches: '初级教练',
+    coaches_background: '背景',
+    coaches_tournament_results: '锦标赛成绩',
     coaches_view_more: '查看更多',
     coaches_close: '关闭',
 
@@ -238,6 +256,12 @@ export const translations: Record<Language, TranslationKeys> = {
     schedule_group_note: 'Jadual Kelas Berkumpulan',
 
     coaches_title: 'Jurulatih Kami',
+    coaches_head_coach: 'Ketua Jurulatih',
+    coaches_assistant_head_coach: 'Penolong Ketua Jurulatih',
+    coaches_senior_coaches: 'Jurulatih Kanan',
+    coaches_junior_coaches: 'Jurulatih Junior',
+    coaches_background: 'Latar Belakang',
+    coaches_tournament_results: 'Keputusan Kejohanan',
     coaches_view_more: 'Lihat Lebih Lanjut',
     coaches_close: 'Tutup',
 

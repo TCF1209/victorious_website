@@ -4,9 +4,10 @@ export interface Coach {
   id: string;
   name: string;
   title: Record<Language, string>;
+  role: 'head' | 'assistant_head' | 'senior' | 'junior';
   photo: string;
-  featuredAchievements: Record<Language, string[]>;
-  fullAchievements: Record<Language, string[]>;
+  credentials: Record<Language, string[]>;
+  tournamentResults: string[];
   bio: Record<Language, string>;
 }
 
