@@ -70,7 +70,7 @@ export default function Schedule({ language }: ScheduleProps) {
           </h3>
           <div className="mx-auto mt-6 max-w-3xl overflow-hidden rounded-lg bg-white shadow-sm">
             <div className="grid md:grid-cols-2">
-              <div className="flex items-center justify-center bg-black">
+              <div className="flex items-center justify-center bg-white">
                 <video
                   src="/images/location/1-on-1_training_video.mp4"
                   poster="/images/location/1-on-1_training_video_poster.jpeg"
