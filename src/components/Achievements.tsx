@@ -192,7 +192,7 @@ export default function Achievements({ language }: AchievementsProps) {
               >
                 <ChevronDown
                   size={20}
-                  className={`shrink-0 text-gold transition-transform ${openGroups.has(group.key) ? 'rotate-180' : ''}`}
+                  className={`shrink-0 text-black transition-transform ${openGroups.has(group.key) ? 'rotate-180' : ''}`}
                 />
                 <h4 className="text-lg font-bold text-black">{group.label}</h4>
               </button>
