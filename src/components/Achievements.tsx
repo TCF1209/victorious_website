@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { Trophy, ChevronDown, User } from 'lucide-react';
+import { Trophy, ChevronDown, ChevronLeft, ChevronRight, User } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { studentAchievements } from '@/data/achievements';
@@ -100,6 +100,8 @@ export default function Achievements({ language }: AchievementsProps) {
   const t = translations[language];
   const ref = useScrollReveal<HTMLElement>();
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [activeCard, setActiveCard] = useState(0);
+  const [isCardTransitioning, setIsCardTransitioning] = useState(false);
   const [openStudents, setOpenStudents] = useState<Set<string>>(new Set());
   const [openGroups, setOpenGroups] = useState<Set<string>>(new Set(['junior', 'senior']));
   const [imgErrors, setImgErrors] = useState<Set<string>>(new Set());
@@ -115,6 +117,27 @@ export default function Achievements({ language }: AchievementsProps) {
       return next;
     });
   };
+
+  const goToCard = useCallback((index: number) => {
+    setIsCardTransitioning(true);
+    setTimeout(() => {
+      setActiveCard(index);
+      setIsCardTransitioning(false);
+    }, 200);
+  }, []);
+
+  const nextCard = useCallback(() => {
+    goToCard((activeCard + 1) % achievements.length);
+  }, [activeCard, goToCard]);
+
+  const prevCard = useCallback(() => {
+    goToCard((activeCard - 1 + achievements.length) % achievements.length);
+  }, [activeCard, goToCard]);
+
+  useEffect(() => {
+    const timer = setInterval(nextCard, 5000);
+    return () => clearInterval(timer);
+  }, [nextCard]);
 
   const toggleGroup = (key: string) => {
     setOpenGroups((prev) => {
@@ -135,45 +158,83 @@ export default function Achievements({ language }: AchievementsProps) {
           <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
             {t.achievements_title}
           </h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {achievements.map((achievement) => {
+          <div className="mx-auto mt-12 max-w-sm">
+            {(() => {
+              const achievement = achievements[activeCard];
               const style = placementStyles[achievement.placement];
               return (
-                <div
-                  key={achievement.id}
-                  className="rounded-lg border-2 border-black/15 bg-white p-4 shadow-sm"
-                >
+                <div className="relative flex items-center gap-3">
                   <button
-                    onClick={() => setZoomedImage(achievement.image)}
-                    className="block w-full cursor-pointer overflow-hidden rounded"
+                    onClick={prevCard}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-dark-gray shadow-sm transition-colors hover:border-gold hover:text-gold"
+                    aria-label="Previous achievement"
                   >
-                    <div className="relative aspect-square">
-                      <Image
-                        src={achievement.image}
-                        alt={achievement.name}
-                        fill
-                        className="object-cover object-top transition-transform hover:scale-105"
-                      />
-                    </div>
+                    <ChevronLeft size={20} />
                   </button>
-                  <div className="mt-3 text-center">
-                    <p className="text-base font-bold text-black">{achievement.name}</p>
-                    <p className="mt-1 text-xs text-dark-gray">
-                      {achievement.tournament[language]}
-                    </p>
-                    {achievement.category[language] && (
-                      <p className="mt-0.5 text-xs text-dark-gray">
-                        {achievement.category[language]}
+
+                  <div
+                    className={`flex-1 rounded-lg border-2 border-black/15 bg-white p-4 shadow-sm transition-opacity duration-200 ${
+                      isCardTransitioning ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  >
+                    <button
+                      onClick={() => setZoomedImage(achievement.image)}
+                      className="block w-full cursor-pointer overflow-hidden rounded"
+                    >
+                      <div className="relative aspect-square">
+                        <Image
+                          src={achievement.image}
+                          alt={achievement.name}
+                          fill
+                          className="object-cover object-top transition-transform hover:scale-105"
+                        />
+                      </div>
+                    </button>
+                    <div className="mt-3 text-center">
+                      <p className="text-base font-bold text-black">{achievement.name}</p>
+                      <p className="mt-1 text-xs text-dark-gray">
+                        {achievement.tournament[language]}
                       </p>
-                    )}
-                    <span className={`mt-2 inline-flex items-center gap-1 rounded-full ${style.bg} px-3 py-1 text-xs font-bold ${style.text}`}>
-                      <Trophy size={12} />
-                      {placementLabel[achievement.placement][language]}
-                    </span>
+                      {achievement.category[language] && (
+                        <p className="mt-0.5 text-xs text-dark-gray">
+                          {achievement.category[language]}
+                        </p>
+                      )}
+                      <span className={`mt-2 inline-flex items-center gap-1 rounded-full ${style.bg} px-3 py-1 text-xs font-bold ${style.text}`}>
+                        <Trophy size={12} />
+                        {placementLabel[achievement.placement][language]}
+                      </span>
+                    </div>
                   </div>
+
+                  <button
+                    onClick={nextCard}
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-dark-gray shadow-sm transition-colors hover:border-gold hover:text-gold"
+                    aria-label="Next achievement"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
                 </div>
               );
-            })}
+            })()}
+
+            <div className="mt-6 flex flex-col items-center gap-3">
+              <div className="flex justify-center gap-2">
+                {achievements.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => goToCard(idx)}
+                    className={`h-3 rounded-full transition-all duration-300 ${
+                      idx === activeCard ? 'w-8 bg-gold' : 'w-3 bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Achievement ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              <p className="text-xs text-gray-400">
+                {activeCard + 1} / {achievements.length}
+              </p>
+            </div>
           </div>
 
           {/* Full Results Accordion */}
