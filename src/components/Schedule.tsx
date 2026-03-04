@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { MapPin, Clock } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
@@ -27,20 +28,30 @@ export default function Schedule({ language }: ScheduleProps) {
           {trainingLocations.map((location) => (
             <div
               key={location.id}
-              className="rounded-lg border-t-4 border-gold bg-white p-6 shadow-sm"
+              className="overflow-hidden rounded-lg bg-white shadow-sm"
             >
-              <div className="flex items-center gap-2 text-lg font-bold text-black">
-                <MapPin size={20} className="text-gold" />
-                {location.name}
+              <div className="relative h-48 w-full">
+                <Image
+                  src={location.image}
+                  alt={location.name}
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <div className="mt-4 space-y-3">
-                {location.sessions.map((session, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-dark-gray">
-                    <Clock size={16} className="text-gold" />
-                    <span className="font-medium">{session.day[language]}</span>
-                    <span className="text-sm">{session.time}</span>
-                  </div>
-                ))}
+              <div className="p-6">
+                <div className="flex items-center gap-2 text-lg font-bold text-black">
+                  <MapPin size={20} className="shrink-0 text-gold" />
+                  {location.name}
+                </div>
+                <div className="mt-4 space-y-3">
+                  {location.sessions.map((session, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-dark-gray">
+                      <Clock size={16} className="shrink-0 text-gold" />
+                      <span className="font-medium">{session.day[language]}</span>
+                      <span className="text-sm">{session.time}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

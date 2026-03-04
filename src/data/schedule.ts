@@ -1,9 +1,11 @@
+
 import { TrainingLocation } from '@/types';
 
 export const trainingLocations: TrainingLocation[] = [
   {
     id: 'loc-1',
     name: 'Giant, Bukit Tinggi',
+    image: '/images/location/giant_bukit_tinggi.jpg',
     sessions: [
       {
         day: { en: 'Thursday', zh: '星期四', ms: 'Khamis' },
@@ -18,6 +20,7 @@ export const trainingLocations: TrainingLocation[] = [
   {
     id: 'loc-2',
     name: 'SBA Forum, Setia Alam',
+    image: '/images/location/setia_alam_forum_sba.jpg',
     sessions: [
       {
         day: { en: 'Saturday', zh: '星期六', ms: 'Sabtu' },
@@ -32,6 +35,7 @@ export const trainingLocations: TrainingLocation[] = [
   {
     id: 'loc-3',
     name: 'YTP Sports Arena',
+    image: '/images/location/ytp_klang.jpg',
     sessions: [
       {
         day: { en: 'Friday', zh: '星期五', ms: 'Jumaat' },

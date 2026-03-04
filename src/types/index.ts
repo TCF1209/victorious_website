@@ -14,6 +14,7 @@ export interface Coach {
 export interface TrainingLocation {
   id: string;
   name: string;
+  image: string;
   sessions: {
     day: Record<Language, string>;
     time: string;
