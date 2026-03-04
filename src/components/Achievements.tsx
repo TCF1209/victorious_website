@@ -101,6 +101,7 @@ export default function Achievements({ language }: AchievementsProps) {
   const ref = useScrollReveal<HTMLElement>();
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [openStudents, setOpenStudents] = useState<Set<string>>(new Set());
+  const [openGroups, setOpenGroups] = useState<Set<string>>(new Set(['junior', 'senior']));
   const [imgErrors, setImgErrors] = useState<Set<string>>(new Set());
 
   const toggleStudent = (index: string) => {
@@ -110,6 +111,18 @@ export default function Achievements({ language }: AchievementsProps) {
         next.delete(index);
       } else {
         next.add(index);
+      }
+      return next;
+    });
+  };
+
+  const toggleGroup = (key: string) => {
+    setOpenGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) {
+        next.delete(key);
+      } else {
+        next.add(key);
       }
       return next;
     });
@@ -169,12 +182,22 @@ export default function Achievements({ language }: AchievementsProps) {
           </h3>
 
           {[
-            { label: t.achievements_junior_players, students: studentAchievements.filter((s) => parseInt(s.age) < 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
-            { label: t.achievements_senior_players, students: studentAchievements.filter((s) => parseInt(s.age) >= 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
+            { key: 'junior', label: t.achievements_junior_players, students: studentAchievements.filter((s) => parseInt(s.age) < 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
+            { key: 'senior', label: t.achievements_senior_players, students: studentAchievements.filter((s) => parseInt(s.age) >= 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
           ].map((group) => (
-            <div key={group.label} className="mt-8">
-              <h4 className="mb-3 text-lg font-bold text-gold">{group.label}</h4>
-              <div className="space-y-2">
+            <div key={group.key} className="mt-8">
+              <button
+                onClick={() => toggleGroup(group.key)}
+                className="flex w-full items-center gap-2 text-left"
+              >
+                <ChevronDown
+                  size={20}
+                  className={`shrink-0 text-gold transition-transform ${openGroups.has(group.key) ? 'rotate-180' : ''}`}
+                />
+                <h4 className="text-lg font-bold text-gold">{group.label}</h4>
+                <span className="text-sm text-dark-gray">({group.students.length})</span>
+              </button>
+              {openGroups.has(group.key) && <div className="mt-3 space-y-2">
                 {group.students.map((student) => {
                   const key = student.name;
                   const isOpen = openStudents.has(key);
@@ -230,7 +253,7 @@ export default function Achievements({ language }: AchievementsProps) {
                     </div>
                   );
                 })}
-              </div>
+              </div>}
             </div>
           ))}
         </div>
