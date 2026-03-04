@@ -112,7 +112,7 @@ export default function Coaches({ language }: CoachesProps) {
                     className="h-full w-full object-cover object-top"
                   />
                 </button>
-                <div className="text-center sm:text-left">
+                <div className="text-left">
                   <h3 className="text-xl font-bold text-black">
                     {headCoach.name}
                   </h3>
