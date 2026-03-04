@@ -80,7 +80,7 @@ export default function Schedule({ language }: ScheduleProps) {
                   className="aspect-[9/16] max-h-[400px] object-contain"
                 />
               </div>
-              <div className="flex flex-col justify-center p-6 md:p-8">
+              <div className="flex flex-col justify-center border-t border-black/15 p-6 md:border-l md:border-t-0 md:p-8">
                 <h3 className="text-xl font-bold text-black">
                   {t.schedule_personal_note}
                 </h3>
