@@ -4,7 +4,7 @@ import { TrainingLocation } from '@/types';
 export const trainingLocations: TrainingLocation[] = [
   {
     id: 'loc-1',
-    name: 'Giant, Bukit Tinggi',
+    name: 'Smash2u Sports Hub, Giant, Bukit Tinggi',
     image: '/images/location/giant_bukit_tinggi.jpg',
     sessions: [
       {
@@ -34,7 +34,7 @@ export const trainingLocations: TrainingLocation[] = [
   },
   {
     id: 'loc-3',
-    name: 'YTP Sports Arena',
+    name: 'YTP Sports Arena, Taman Klang Jaya',
     image: '/images/location/ytp_klang.jpg',
     sessions: [
       {
