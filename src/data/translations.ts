@@ -39,6 +39,11 @@ type TranslationKeys = {
   // Schedule
   schedule_title: string;
   schedule_group_note: string;
+  schedule_personal_note: string;
+  schedule_personal_timing: string;
+  schedule_personal_location: string;
+  schedule_personal_availability: string;
+  schedule_personal_recommended: string;
 
   // Coaches
   coaches_title: string;
@@ -116,6 +121,11 @@ export const translations: Record<Language, TranslationKeys> = {
 
     schedule_title: 'Training Schedule',
     schedule_group_note: 'Group Class Schedule',
+    schedule_personal_note: 'Personal Training (1on1, 1on2, 1on4)',
+    schedule_personal_timing: 'Timing is Flexible',
+    schedule_personal_location: 'Location is Flexible (Klang Area)',
+    schedule_personal_availability: 'Kids (Age 5-17) / Adult Personal Class Available',
+    schedule_personal_recommended: 'Recommended',
 
     coaches_title: 'Our Coaches',
     coaches_head_coach: 'Head Coach',
@@ -185,6 +195,11 @@ export const translations: Record<Language, TranslationKeys> = {
 
     schedule_title: '训练时间表',
     schedule_group_note: '团体课程时间表',
+    schedule_personal_note: '个人训练（1对1、1对2、1对4）',
+    schedule_personal_timing: '时间灵活',
+    schedule_personal_location: '地点灵活（巴生地区）',
+    schedule_personal_availability: '儿童（5-17岁）/ 成人私人课程',
+    schedule_personal_recommended: '推荐地点',
 
     coaches_title: '我们的教练',
     coaches_head_coach: '主教练',
@@ -254,6 +269,11 @@ export const translations: Record<Language, TranslationKeys> = {
 
     schedule_title: 'Jadual Latihan',
     schedule_group_note: 'Jadual Kelas Berkumpulan',
+    schedule_personal_note: 'Latihan Peribadi (1on1, 1on2, 1on4)',
+    schedule_personal_timing: 'Masa Fleksibel',
+    schedule_personal_location: 'Lokasi Fleksibel (Kawasan Klang)',
+    schedule_personal_availability: 'Kanak-kanak (Umur 5-17) / Kelas Peribadi Dewasa',
+    schedule_personal_recommended: 'Disyorkan',
 
     coaches_title: 'Jurulatih Kami',
     coaches_head_coach: 'Ketua Jurulatih',

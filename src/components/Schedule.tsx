@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { MapPin, Clock } from 'lucide-react';
+import { MapPin, Clock, User } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { trainingLocations } from '@/data/schedule';
@@ -25,9 +25,9 @@ export default function Schedule({ language }: ScheduleProps) {
           <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
             {t.schedule_title}
           </h2>
-          <p className="mt-2 text-center text-sm font-medium text-gold">
+          <h3 className="mt-4 text-center text-xl font-bold text-gold">
             {t.schedule_group_note}
-          </p>
+          </h3>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {trainingLocations.map((location) => (
               <div
@@ -62,6 +62,55 @@ export default function Schedule({ language }: ScheduleProps) {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Personal Training */}
+          <h3 className="mt-16 text-center text-xl font-bold text-gold">
+            {t.schedule_personal_note}
+          </h3>
+          <div className="mx-auto mt-6 max-w-3xl overflow-hidden rounded-lg bg-white shadow-sm">
+            <div className="grid md:grid-cols-2">
+              <div className="flex items-center justify-center bg-black">
+                <video
+                  src="/images/location/1-on-1_training_video.mp4"
+                  poster="/images/location/1-on-1_training_video_poster.jpeg"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-[9/16] max-h-[400px] object-contain"
+                />
+              </div>
+              <div className="flex flex-col justify-center p-6 md:p-8">
+                <h3 className="text-xl font-bold text-black">
+                  {t.schedule_personal_note}
+                </h3>
+                <div className="mt-6 space-y-4">
+                  <div className="flex items-center gap-3 text-dark-gray">
+                    <Clock size={20} className="shrink-0 text-gold" />
+                    <span className="font-medium">{t.schedule_personal_timing}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-dark-gray">
+                    <MapPin size={20} className="shrink-0 text-gold" />
+                    <span className="font-medium">{t.schedule_personal_location}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-dark-gray">
+                    <User size={20} className="shrink-0 text-gold" />
+                    <span className="font-medium">{t.schedule_personal_availability}</span>
+                  </div>
+                  <div className="flex items-start gap-3 text-dark-gray">
+                    <MapPin size={20} className="mt-0.5 shrink-0 text-gold" />
+                    <div>
+                      <span className="font-medium">{t.schedule_personal_recommended}:</span>
+                      <div className="mt-1 space-y-1 text-sm">
+                        <p>1) Smash2u Sports Hub, Giant, Bukit Tinggi</p>
+                        <p>2) SBA Forum, Setia Alam</p>
+                        <p>3) YTP Sports Arena, Taman Klang Jaya</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
