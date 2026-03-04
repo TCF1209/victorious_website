@@ -35,6 +35,8 @@ type TranslationKeys = {
   why_competition_desc: string;
   why_structured: string;
   why_structured_desc: string;
+  why_sparring: string;
+  why_sparring_desc: string;
 
   // Schedule
   schedule_title: string;
@@ -58,6 +60,7 @@ type TranslationKeys = {
 
   // Achievements
   achievements_title: string;
+  achievements_full_results: string;
 
   // Testimonials
   testimonials_title: string;
@@ -115,9 +118,11 @@ export const translations: Record<Language, TranslationKeys> = {
     why_small_class: 'Small Class Sizes',
     why_small_class_desc: 'Maximum 6 students per group ensures personalized attention and faster improvement.',
     why_competition: 'Competition Track Record',
-    why_competition_desc: 'Our students consistently win medals at district, state, and national level tournaments.',
+    why_competition_desc: 'Our students consistently win medals at school, district, and state level tournaments.',
     why_structured: 'Structured Training',
     why_structured_desc: 'Progressive curriculum designed to develop technique, fitness, and game strategy.',
+    why_sparring: 'Sparring & Game Play',
+    why_sparring_desc: 'We provide sparring opportunities where players compete with senior players or coaches, gaining real match experience and improving decision-making under pressure.',
 
     schedule_title: 'Training Schedule',
     schedule_group_note: 'Group Class Schedule',
@@ -138,6 +143,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Close',
 
     achievements_title: 'Student Achievements',
+    achievements_full_results: 'Full Results',
 
     testimonials_title: 'What Parents & Students Say',
 
@@ -189,9 +195,11 @@ export const translations: Record<Language, TranslationKeys> = {
     why_small_class: '小班教学',
     why_small_class_desc: '每组最多6名学生，确保个性化关注和更快进步。',
     why_competition: '比赛成绩',
-    why_competition_desc: '我们的学生在区级、州级和全国级锦标赛中屡获奖牌。',
+    why_competition_desc: '我们的学生在校级、区级和州级锦标赛中屡获奖牌。',
     why_structured: '系统化训练',
     why_structured_desc: '渐进式课程设计，注重技术、体能和比赛策略的全面发展。',
+    why_sparring: '陪练与实战',
+    why_sparring_desc: '我们提供陪练机会，让学员与资深球员或教练对打，获得真实的比赛经验，提升压力下的决策能力。',
 
     schedule_title: '训练时间表',
     schedule_group_note: '团体课程时间表',
@@ -212,6 +220,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: '关闭',
 
     achievements_title: '学生成就',
+    achievements_full_results: '完整成绩',
 
     testimonials_title: '家长与学生反馈',
 
@@ -263,9 +272,11 @@ export const translations: Record<Language, TranslationKeys> = {
     why_small_class: 'Kelas Kecil',
     why_small_class_desc: 'Maksimum 6 pelajar setiap kumpulan memastikan perhatian peribadi dan peningkatan lebih cepat.',
     why_competition: 'Rekod Pertandingan',
-    why_competition_desc: 'Pelajar kami sentiasa memenangi pingat di peringkat daerah, negeri, dan kebangsaan.',
+    why_competition_desc: 'Pelajar kami sentiasa memenangi pingat di peringkat sekolah, daerah, dan negeri.',
     why_structured: 'Latihan Berstruktur',
     why_structured_desc: 'Kurikulum progresif yang direka untuk membangunkan teknik, kecergasan, dan strategi permainan.',
+    why_sparring: 'Sparring & Permainan',
+    why_sparring_desc: 'Kami menyediakan peluang sparring di mana pemain boleh bertanding dengan pemain senior atau jurulatih, memperoleh pengalaman perlawanan sebenar dan meningkatkan keupayaan membuat keputusan di bawah tekanan.',
 
     schedule_title: 'Jadual Latihan',
     schedule_group_note: 'Jadual Kelas Berkumpulan',
@@ -286,6 +297,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Tutup',
 
     achievements_title: 'Pencapaian Pelajar',
+    achievements_full_results: 'Keputusan Penuh',
 
     testimonials_title: 'Kata Ibu Bapa & Pelajar',
 

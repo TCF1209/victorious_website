@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { Trophy } from 'lucide-react';
+import { Trophy, ChevronDown, User } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
+import { studentAchievements } from '@/data/achievements';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface AchievementsProps {
@@ -93,10 +94,26 @@ const achievements = [
   },
 ];
 
+const medalEmoji = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
+
 export default function Achievements({ language }: AchievementsProps) {
   const t = translations[language];
   const ref = useScrollReveal<HTMLElement>();
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [openStudents, setOpenStudents] = useState<Set<number>>(new Set());
+  const [imgErrors, setImgErrors] = useState<Set<number>>(new Set());
+
+  const toggleStudent = (index: number) => {
+    setOpenStudents((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  };
 
   return (
     <>
@@ -141,6 +158,67 @@ export default function Achievements({ language }: AchievementsProps) {
                       {placementLabel[achievement.placement][language]}
                     </span>
                   </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Full Results Accordion */}
+          <h3 className="mt-16 text-center text-2xl font-bold text-gold">
+            {t.achievements_full_results}
+          </h3>
+          <div className="mt-8 space-y-2">
+            {studentAchievements.map((student, index) => {
+              const isOpen = openStudents.has(index);
+              const goldCount = student.results.filter((r) => r.medal === 'gold').length;
+              const silverCount = student.results.filter((r) => r.medal === 'silver').length;
+              const bronzeCount = student.results.filter((r) => r.medal === 'bronze').length;
+
+              return (
+                <div key={index} className="overflow-hidden rounded-lg bg-white shadow-sm">
+                  <button
+                    onClick={() => toggleStudent(index)}
+                    className="flex w-full items-center justify-between p-4 text-left"
+                  >
+                    <div className="flex min-w-0 flex-1 items-center gap-3">
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                        {!imgErrors.has(index) ? (
+                          <Image
+                            src={student.image}
+                            alt={student.name}
+                            fill
+                            className="object-cover"
+                            onError={() => setImgErrors((prev) => new Set(prev).add(index))}
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center">
+                            <User size={20} className="text-gray-400" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <span className="font-bold text-black">{student.name}, {student.age}</span>
+                        <span className="ml-2 text-sm text-dark-gray">
+                          {goldCount > 0 && `🥇×${goldCount} `}
+                          {silverCount > 0 && `🥈×${silverCount} `}
+                          {bronzeCount > 0 && `🥉×${bronzeCount}`}
+                        </span>
+                      </div>
+                    </div>
+                    <ChevronDown
+                      size={20}
+                      className={`ml-2 shrink-0 text-dark-gray transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="border-t border-gray-100 px-4 pb-4 pt-2 space-y-1">
+                      {student.results.map((r, i) => (
+                        <p key={i} className="text-sm text-dark-gray">
+                          • {r.tournament} {medalEmoji[r.medal]}
+                        </p>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             })}

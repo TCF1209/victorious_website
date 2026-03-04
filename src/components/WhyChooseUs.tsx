@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, Users, Trophy, BookOpen } from 'lucide-react';
+import { Award, Users, Trophy, BookOpen, Swords } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
@@ -14,6 +14,7 @@ const features = [
   { key: 'why_small_class' as const, icon: Users },
   { key: 'why_competition' as const, icon: Trophy },
   { key: 'why_structured' as const, icon: BookOpen },
+  { key: 'why_sparring' as const, icon: Swords },
 ];
 
 export default function WhyChooseUs({ language }: WhyChooseUsProps) {
@@ -26,7 +27,7 @@ export default function WhyChooseUs({ language }: WhyChooseUsProps) {
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.why_title}
         </h2>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
           {features.map((feature) => {
             const Icon = feature.icon;
             const titleKey = feature.key as keyof typeof t;
@@ -34,7 +35,7 @@ export default function WhyChooseUs({ language }: WhyChooseUsProps) {
             return (
               <div
                 key={feature.key}
-                className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm"
+                className="w-full rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold/10">
                   <Icon size={28} className="text-gold" />
