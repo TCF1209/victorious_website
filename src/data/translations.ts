@@ -91,7 +91,7 @@ export const translations: Record<Language, TranslationKeys> = {
     nav_videos: 'Videos',
     nav_contact: 'Contact',
 
-    hero_tagline: 'Building Future Champions',
+    hero_tagline: "Let's Strive Together",
     hero_view_schedule: 'View Schedule',
     hero_contact: 'Contact Us',
 
@@ -160,7 +160,7 @@ export const translations: Record<Language, TranslationKeys> = {
     nav_videos: '训练视频',
     nav_contact: '联系我们',
 
-    hero_tagline: '培养未来冠军',
+    hero_tagline: '让我们一起奋斗',
     hero_view_schedule: '查看课程表',
     hero_contact: '联系我们',
 
@@ -229,7 +229,7 @@ export const translations: Record<Language, TranslationKeys> = {
     nav_videos: 'Video',
     nav_contact: 'Hubungi',
 
-    hero_tagline: 'Membentuk Juara Masa Depan',
+    hero_tagline: 'Mari Berusaha Bersama',
     hero_view_schedule: 'Lihat Jadual',
     hero_contact: 'Hubungi Kami',
 
