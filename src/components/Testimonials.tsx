@@ -13,72 +13,132 @@ interface TestimonialsProps {
 const testimonials = [
   {
     id: '1',
-    parent: {
-      en: 'Mrs. Tan Wei Lin',
-      zh: '陈伟玲女士',
-      ms: 'Puan Tan Wei Lin',
+    name: 'Charmaine',
+    date: 'Jan 2024',
+    description: {
+      en: 'Parent of two children competing at school and external Bakat Baru level',
+      zh: '两个孩子在学校和外部Bakat Baru级别比赛的家长',
+      ms: 'Ibu bapa kepada dua anak yang bertanding di peringkat sekolah dan Bakat Baru',
     },
     quote: {
-      en: 'My son has improved tremendously since joining the academy. The coaches are dedicated and the structured training really makes a difference. He went from a complete beginner to winning his first medal in just one year!',
-      zh: '自从加入学院以来，我儿子进步了很多。教练们非常敬业，系统化的训练确实有很大帮助。他从零基础到在一年内赢得了第一枚奖牌！',
-      ms: 'Anak saya telah menunjukkan peningkatan yang luar biasa sejak menyertai akademi ini. Jurulatih sangat berdedikasi dan latihan berstruktur benar-benar membuat perbezaan. Dia bermula sebagai pemula dan berjaya memenangi pingat pertamanya dalam setahun sahaja!',
-    },
-    achievement: {
-      en: 'Son won U12 District Championship',
-      zh: '儿子赢得U12区锦标赛',
-      ms: 'Anak lelaki memenangi Kejohanan Daerah U12',
+      en: 'Thank you for the efforts, he has improved a lot, this is a feedback from his PE teacher.',
+      zh: 'Thank you for the efforts, he has improved a lot, this is a feedback from his PE teacher.',
+      ms: 'Thank you for the efforts, he has improved a lot, this is a feedback from his PE teacher.',
     },
   },
   {
     id: '2',
-    parent: {
-      en: 'Mr. Ahmad Razali',
-      zh: 'Ahmad Razali 先生',
-      ms: 'Encik Ahmad Razali',
+    name: 'Jovie Lim',
+    date: 'Feb 2025',
+    description: {
+      en: 'Adult player competing at Bakat Baru level',
+      zh: '在Bakat Baru级别比赛的成人球员',
+      ms: 'Pemain dewasa yang bertanding di peringkat Bakat Baru',
     },
     quote: {
-      en: 'The small class sizes mean my daughter gets personal attention from the coaches. She loves the training sessions and has become more disciplined and confident both on and off the court.',
-      zh: '小班制意味着我女儿可以得到教练的个别关注。她非常喜欢训练课程，无论在球场上还是球场外都变得更加自律和自信。',
-      ms: 'Kelas yang kecil bermakna anak perempuan saya mendapat perhatian peribadi daripada jurulatih. Dia sangat menyukai sesi latihan dan menjadi lebih berdisiplin serta yakin di dalam dan luar gelanggang.',
-    },
-    achievement: {
-      en: 'Daughter selected for state team',
-      zh: '女儿入选州队',
-      ms: 'Anak perempuan dipilih untuk pasukan negeri',
+      en: 'You all helped me improve my skills on the court, but you have also taught me valuable lessons about perseverance, discipline and sportsmanship. Every training session was sometimes tiring, but I always felt happy and fulfilled because I knew I was learning and improving with each of you.',
+      zh: 'You all helped me improve my skills on the court, but you have also taught me valuable lessons about perseverance, discipline and sportsmanship. Every training session was sometimes tiring, but I always felt happy and fulfilled because I knew I was learning and improving with each of you.',
+      ms: 'You all helped me improve my skills on the court, but you have also taught me valuable lessons about perseverance, discipline and sportsmanship. Every training session was sometimes tiring, but I always felt happy and fulfilled because I knew I was learning and improving with each of you.',
     },
   },
   {
     id: '3',
-    parent: {
-      en: 'Mrs. Priya Nair',
-      zh: 'Priya Nair 女士',
-      ms: 'Puan Priya Nair',
+    name: 'Mr Ting / Ting Kok Heng',
+    date: 'Dec 2022',
+    description: {
+      en: 'Parent whose son won several state level tournaments',
+      zh: '儿子赢得多个州级锦标赛的家长',
+      ms: 'Ibu bapa yang anaknya memenangi beberapa kejohanan peringkat negeri',
     },
     quote: {
-      en: 'We tried several academies before finding Victorious. The difference is clear — the coaches genuinely care about each student\'s development, not just their badminton skills but also their character and sportsmanship.',
-      zh: '在找到 Victorious 之前，我们尝试了几家学院。差别很明显——教练们真正关心每个学生的发展，不仅是他们的羽毛球技能，还有他们的品格和体育精神。',
-      ms: 'Kami telah mencuba beberapa akademi sebelum menemui Victorious. Perbezaannya jelas — jurulatih benar-benar mengambil berat tentang perkembangan setiap pelajar, bukan sahaja kemahiran badminton tetapi juga perwatakan dan semangat kesukanan mereka.',
+      en: 'Special thanks to Coach Hong Woon (founder of Victorious BA) for your dedication in grooming Damien for his badminton skills. You made 2022 a memorable year for us, especially for Damien, with a total of 12 medals secured. I wish you and your academy great success in 2023!',
+      zh: 'Special thanks to Coach Hong Woon (founder of Victorious BA) for your dedication in grooming Damien for his badminton skills. You made 2022 a memorable year for us, especially for Damien, with a total of 12 medals secured. I wish you and your academy great success in 2023!',
+      ms: 'Special thanks to Coach Hong Woon (founder of Victorious BA) for your dedication in grooming Damien for his badminton skills. You made 2022 a memorable year for us, especially for Damien, with a total of 12 medals secured. I wish you and your academy great success in 2023!',
     },
-    achievement: {
-      en: 'Both children compete at national level',
-      zh: '两个孩子都在全国水平比赛',
-      ms: 'Kedua-dua anak bertanding di peringkat kebangsaan',
+  },
+  {
+    id: '4',
+    name: 'Alicia Goh',
+    date: 'Feb 2020',
+    description: {
+      en: 'Parent of a child who just started their badminton journey',
+      zh: '刚开始羽毛球之旅的孩子的家长',
+      ms: 'Ibu bapa kepada anak yang baru memulakan perjalanan badminton',
+    },
+    quote: {
+      en: 'Great & dedicated coach!!',
+      zh: 'Great & dedicated coach!!',
+      ms: 'Great & dedicated coach!!',
+    },
+  },
+  {
+    id: '5',
+    name: 'lexbluezz',
+    date: 'Dec 2022',
+    description: {
+      en: 'Adult player looking to improve further',
+      zh: '希望进一步提升的成人球员',
+      ms: 'Pemain dewasa yang ingin meningkatkan lagi',
+    },
+    quote: {
+      en: 'Last training of 2022! Thank you, Coach, for the guidance over the last few months. The effort truly paid off! Now it\'s time to take on more social games!',
+      zh: 'Last training of 2022! Thank you, Coach, for the guidance over the last few months. The effort truly paid off! Now it\'s time to take on more social games!',
+      ms: 'Last training of 2022! Thank you, Coach, for the guidance over the last few months. The effort truly paid off! Now it\'s time to take on more social games!',
+    },
+  },
+  {
+    id: '6',
+    name: 'Alicia Khor',
+    date: 'Jul 2024',
+    description: {
+      en: 'Parent of two children competing at school and external Bakat Baru level',
+      zh: '两个孩子在学校和外部Bakat Baru级别比赛的家长',
+      ms: 'Ibu bapa kepada dua anak yang bertanding di peringkat sekolah dan Bakat Baru',
+    },
+    quote: {
+      en: 'Thank you, Coach Hong Woon, for your guidance and dedication all this while. ❤️❤️❤️',
+      zh: 'Thank you, Coach Hong Woon, for your guidance and dedication all this while. ❤️❤️❤️',
+      ms: 'Thank you, Coach Hong Woon, for your guidance and dedication all this while. ❤️❤️❤️',
+    },
+  },
+  {
+    id: '7',
+    name: 'Gan ZK',
+    date: 'Dec 2024',
+    description: {
+      en: 'Student who won multiple state level tournaments including MSSD and MSSS',
+      zh: '赢得多个州级锦标赛包括MSSD和MSSS的学生',
+      ms: 'Pelajar yang memenangi pelbagai kejohanan peringkat negeri termasuk MSSD dan MSSS',
+    },
+    quote: {
+      en: 'I am truly grateful for your coaching and guidance over these two years. Under your training, my badminton skills have improved tremendously. You have always been so kind and supportive — thank you so much, Coach!',
+      zh: 'I am truly grateful for your coaching and guidance over these two years. Under your training, my badminton skills have improved tremendously. You have always been so kind and supportive — thank you so much, Coach!',
+      ms: 'I am truly grateful for your coaching and guidance over these two years. Under your training, my badminton skills have improved tremendously. You have always been so kind and supportive — thank you so much, Coach!',
     },
   },
 ];
 
 export default function Testimonials({ language }: TestimonialsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const t = translations[language];
   const ref = useScrollReveal<HTMLElement>();
 
-  const next = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const goTo = useCallback((index: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveIndex(index);
+      setIsTransitioning(false);
+    }, 200);
   }, []);
 
+  const next = useCallback(() => {
+    goTo((activeIndex + 1) % testimonials.length);
+  }, [activeIndex, goTo]);
+
   const prev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  }, []);
+    goTo((activeIndex - 1 + testimonials.length) % testimonials.length);
+  }, [activeIndex, goTo]);
 
   useEffect(() => {
     const timer = setInterval(next, 5000);
@@ -105,15 +165,26 @@ export default function Testimonials({ language }: TestimonialsProps) {
             </button>
 
             {/* Quote card */}
-            <div className="relative flex-1 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+            <div
+              className={`relative flex-1 rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-opacity duration-200 ${
+                isTransitioning ? 'opacity-0' : 'opacity-100'
+              }`}
+            >
               <Quote size={32} className="absolute top-4 left-4 text-gold/20" />
-              <p className="relative z-10 text-center text-lg italic text-dark-gray">
+              <p className="relative z-10 text-center text-lg italic leading-relaxed text-dark-gray">
                 &ldquo;{testimonial.quote[language]}&rdquo;
               </p>
               <div className="mt-6 text-center">
-                <p className="font-bold text-black">{testimonial.parent[language]}</p>
+                <p className="font-bold text-black">
+                  {testimonial.name}
+                  {testimonial.date && (
+                    <span className="ml-2 text-sm font-normal text-gray-400">
+                      ({testimonial.date})
+                    </span>
+                  )}
+                </p>
                 <p className="mt-1 text-sm font-medium text-gold">
-                  {testimonial.achievement[language]}
+                  {testimonial.description[language]}
                 </p>
               </div>
             </div>
@@ -128,18 +199,23 @@ export default function Testimonials({ language }: TestimonialsProps) {
             </button>
           </div>
 
-          {/* Dots */}
-          <div className="mt-6 flex justify-center gap-2">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIndex(idx)}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  idx === activeIndex ? 'w-8 bg-gold' : 'w-3 bg-gray-300'
-                }`}
-                aria-label={`Testimonial ${idx + 1}`}
-              />
-            ))}
+          {/* Dots with counter */}
+          <div className="mt-6 flex flex-col items-center gap-3">
+            <div className="flex justify-center gap-2">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  className={`h-3 rounded-full transition-all duration-300 ${
+                    idx === activeIndex ? 'w-8 bg-gold' : 'w-3 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Testimonial ${idx + 1}`}
+                />
+              ))}
+            </div>
+            <p className="text-xs text-gray-400">
+              {activeIndex + 1} / {testimonials.length}
+            </p>
           </div>
         </div>
       </div>

@@ -129,7 +129,7 @@ export const translations: Record<Language, TranslationKeys> = {
 
     achievements_title: 'Student Achievements',
 
-    testimonials_title: 'What Parents Say',
+    testimonials_title: 'What Parents & Students Say',
 
     videos_title: 'Training Videos',
 
@@ -198,7 +198,7 @@ export const translations: Record<Language, TranslationKeys> = {
 
     achievements_title: '学生成就',
 
-    testimonials_title: '家长反馈',
+    testimonials_title: '家长与学生反馈',
 
     videos_title: '训练视频',
 
@@ -267,7 +267,7 @@ export const translations: Record<Language, TranslationKeys> = {
 
     achievements_title: 'Pencapaian Pelajar',
 
-    testimonials_title: 'Kata Ibu Bapa',
+    testimonials_title: 'Kata Ibu Bapa & Pelajar',
 
     videos_title: 'Video Latihan',
 
