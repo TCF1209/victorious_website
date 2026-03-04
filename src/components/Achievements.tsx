@@ -194,7 +194,7 @@ export default function Achievements({ language }: AchievementsProps) {
                   size={20}
                   className={`shrink-0 text-gold transition-transform ${openGroups.has(group.key) ? 'rotate-180' : ''}`}
                 />
-                <h4 className="text-lg font-bold text-gold">{group.label}</h4>
+                <h4 className="text-lg font-bold text-black">{group.label}</h4>
               </button>
               {openGroups.has(group.key) && <div className="mt-3 space-y-2">
                 {group.students.map((student) => {
