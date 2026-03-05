@@ -32,6 +32,7 @@ const FULL_RESULTS_STUDENT_NAMES = [
   'Ong Kar Ming',
   'Ivan Goh',
   'Pang Tian You',
+  'Eng Yen Sheng, Adult Player',
   'Gan Zhen Kang, Selangor State Player',
   'Darren Ng, Selangor State Player',
   'Chiau Jia Hao',
