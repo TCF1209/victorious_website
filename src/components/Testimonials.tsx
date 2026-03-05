@@ -126,9 +126,9 @@ const testimonials = [
       ms: 'Ibu bapa yang anaknya bertanding di peringkat negeri dan kebangsaan termasuk memenangi MSSD, MSSS, MSSM',
     },
     quote: {
-      en: '谢谢教练这两个星期的训练，明天梓栋就要出发去怡宝准备MSSM的比赛了，希望他可以在那个比赛中发挥出色，不要令你失望💕',
+      en: 'Thank you, Coach, for the two weeks of training. Tomorrow Zi Dong will be heading to Ipoh to prepare for the MSSM competition. I hope he can perform well in the tournament and not let you down 💕',
       zh: '谢谢教练这两个星期的训练，明天梓栋就要出发去怡宝准备MSSM的比赛了，希望他可以在那个比赛中发挥出色，不要令你失望💕',
-      ms: '谢谢教练这两个星期的训练，明天梓栋就要出发去怡宝准备MSSM的比赛了，希望他可以在那个比赛中发挥出色，不要令你失望💕',
+      ms: 'Terima kasih, Jurulatih, atas latihan dua minggu ini. Esok Zi Dong akan bertolak ke Ipoh untuk bersiap sedia bagi pertandingan MSSM. Semoga dia dapat menunjukkan prestasi cemerlang dan tidak mengecewakan anda 💕',
     },
   },
 ];
