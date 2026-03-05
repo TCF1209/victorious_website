@@ -160,7 +160,13 @@ export default function Achievements({ language }: AchievementsProps) {
                     className="flex w-full items-center justify-between p-4 text-left"
                   >
                     <div className="flex min-w-0 flex-1 items-center gap-3">
-                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                      <div
+                        className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100 cursor-pointer transition-transform hover:scale-110"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!imgErrors.has(key)) setZoomedImage(student.image);
+                        }}
+                      >
                         {!imgErrors.has(key) ? (
                           <Image
                             src={student.image}
