@@ -42,6 +42,8 @@ const FULL_RESULTS_STUDENT_NAMES = [
   'Lim Da Bin',
   'Brandon Ang',
   'Lim Aik Yuan',
+  'Chew Zhong Jie',
+  'Afiq Irfan',
 ];
 
 const medalEmoji = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
