@@ -62,9 +62,9 @@ export default function Footer({ language }: FooterProps) {
                 <Phone size={14} />
                 +60 12-325 3812
               </a>
-              <a href="mailto:info@victoriousbadminton.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-gold transition-colors">
+              <a href="mailto:Yewhongwoon1997@gmail.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-gold transition-colors">
                 <Mail size={14} />
-                info@victoriousbadminton.com
+                Yewhongwoon1997@gmail.com
               </a>
             </div>
             <div className="mt-4 flex items-center gap-4">
