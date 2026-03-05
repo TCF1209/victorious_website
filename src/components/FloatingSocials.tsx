@@ -8,7 +8,7 @@ interface FloatingSocialsProps {
   language: Language;
 }
 
-const WHATSAPP_PHONE = '60176961795';
+const WHATSAPP_PHONE = '60123253812';
 const FACEBOOK_URL = 'https://www.facebook.com/Victoriousbadmintonacademy';
 const INSTAGRAM_URL = 'https://www.instagram.com/victorious_badminton_academy/';
 

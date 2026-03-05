@@ -58,9 +58,9 @@ export default function Footer({ language }: FooterProps) {
           <div>
             <h4 className="font-bold text-gold">{t.footer_contact_info}</h4>
             <div className="mt-3 space-y-2">
-              <a href="tel:+60176961795" className="flex items-center gap-2 text-sm text-gray-400 hover:text-gold transition-colors">
+              <a href="tel:+60123253812" className="flex items-center gap-2 text-sm text-gray-400 hover:text-gold transition-colors">
                 <Phone size={14} />
-                +60 17-696 1795
+                +60 12-325 3812
               </a>
               <a href="mailto:info@victoriousbadminton.com" className="flex items-center gap-2 text-sm text-gray-400 hover:text-gold transition-colors">
                 <Mail size={14} />

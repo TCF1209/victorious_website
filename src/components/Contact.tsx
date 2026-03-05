@@ -13,7 +13,7 @@ interface ContactProps {
   language: Language;
 }
 
-const WHATSAPP_PHONE = '60176961795';
+const WHATSAPP_PHONE = '60123253812';
 
 export default function Contact({ language }: ContactProps) {
   const [submitted, setSubmitted] = useState(false);
