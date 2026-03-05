@@ -61,8 +61,6 @@ type TranslationKeys = {
   // Achievements
   achievements_title: string;
   achievements_full_results: string;
-  achievements_junior_players: string;
-  achievements_senior_players: string;
   achievements_view_more: string;
   achievements_close: string;
 
@@ -147,9 +145,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Close',
 
     achievements_title: 'Student Achievements',
-    achievements_full_results: 'Full Results',
-    achievements_junior_players: 'Junior Players (Under 18)',
-    achievements_senior_players: 'Senior Players (18 & Above)',
+    achievements_full_results: 'Victorious BA Results (2022-2025)',
     achievements_view_more: 'View More',
     achievements_close: 'Close',
 
@@ -228,9 +224,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: '关闭',
 
     achievements_title: '学生成就',
-    achievements_full_results: '完整成绩',
-    achievements_junior_players: '青少年组（18岁以下）',
-    achievements_senior_players: '高年级组（18岁及以上）',
+    achievements_full_results: 'Victorious BA Results (2022-2025)',
     achievements_view_more: '查看更多',
     achievements_close: '关闭',
 
@@ -309,9 +303,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Tutup',
 
     achievements_title: 'Pencapaian Pelajar',
-    achievements_full_results: 'Keputusan Penuh',
-    achievements_junior_players: 'Pemain Junior (Bawah 18)',
-    achievements_senior_players: 'Pemain Senior (18 & Ke Atas)',
+    achievements_full_results: 'Victorious BA Results (2022-2025)',
     achievements_view_more: 'Lihat Lebih Lanjut',
     achievements_close: 'Tutup',
 

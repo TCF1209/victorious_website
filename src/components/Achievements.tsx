@@ -24,6 +24,26 @@ const FEATURED_STUDENT_NAMES = [
   'Lee Siang Yau',
 ];
 
+const FULL_RESULTS_STUDENT_NAMES = [
+  'Chia Zhi Dong, Selangor State Player',
+  'Edwin Lim Chong Hong',
+  'Ong Yu Xun',
+  'Lai Yoke Yeong',
+  'Ong Kar Ming',
+  'Ivan Goh',
+  'Pang Tian You',
+  'Gan Zhen Kang, Selangor State Player',
+  'Darren Ng, Selangor State Player',
+  'Chiau Jia Hao',
+  'Tan Yee Yong',
+  'Caroline Lim',
+  'Yui Xi Ling',
+  'Cham Tian Soon',
+  'Lim Da Bin',
+  'Brandon Ang',
+  'Lim Aik Yuan',
+];
+
 const medalEmoji = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
 
 export default function Achievements({ language }: AchievementsProps) {
@@ -32,10 +52,13 @@ export default function Achievements({ language }: AchievementsProps) {
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
   const [selectedStudent, setSelectedStudent] = useState<StudentAchievement | null>(null);
   const [openStudents, setOpenStudents] = useState<Set<string>>(new Set());
-  const [openGroups, setOpenGroups] = useState<Set<string>>(new Set(['junior', 'senior']));
   const [imgErrors, setImgErrors] = useState<Set<string>>(new Set());
 
   const featuredStudents = FEATURED_STUDENT_NAMES.map(
+    (name) => studentAchievements.find((s) => s.name === name)!
+  );
+
+  const fullResultsStudents = FULL_RESULTS_STUDENT_NAMES.map(
     (name) => studentAchievements.find((s) => s.name === name)!
   );
 
@@ -46,18 +69,6 @@ export default function Achievements({ language }: AchievementsProps) {
         next.delete(index);
       } else {
         next.add(index);
-      }
-      return next;
-    });
-  };
-
-  const toggleGroup = (key: string) => {
-    setOpenGroups((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) {
-        next.delete(key);
-      } else {
-        next.add(key);
       }
       return next;
     });
@@ -134,80 +145,63 @@ export default function Achievements({ language }: AchievementsProps) {
             {t.achievements_full_results}
           </h3>
 
-          {[
-            { key: 'junior', label: t.achievements_junior_players, students: studentAchievements.filter((s) => parseInt(s.age) < 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
-            { key: 'senior', label: t.achievements_senior_players, students: studentAchievements.filter((s) => parseInt(s.age) >= 18).sort((a, b) => parseInt(a.age) - parseInt(b.age) || a.name.localeCompare(b.name)) },
-          ].map((group) => (
-            <div key={group.key} className="mt-8">
-              <button
-                onClick={() => toggleGroup(group.key)}
-                className="flex w-full items-center gap-2 text-left"
-              >
-                <ChevronDown
-                  size={20}
-                  className={`shrink-0 text-black transition-transform ${openGroups.has(group.key) ? 'rotate-180' : ''}`}
-                />
-                <h4 className="text-lg font-bold text-black">{group.label}</h4>
-              </button>
-              {openGroups.has(group.key) && <div className="mt-3 space-y-2">
-                {group.students.map((student) => {
-                  const key = student.name;
-                  const isOpen = openStudents.has(key);
-                  const goldCount = student.results.filter((r) => r.medal === 'gold').length;
-                  const silverCount = student.results.filter((r) => r.medal === 'silver').length;
-                  const bronzeCount = student.results.filter((r) => r.medal === 'bronze').length;
+          <div className="mt-8 space-y-2">
+            {fullResultsStudents.map((student) => {
+              const key = student.name;
+              const isOpen = openStudents.has(key);
+              const goldCount = student.results.filter((r) => r.medal === 'gold').length;
+              const silverCount = student.results.filter((r) => r.medal === 'silver').length;
+              const bronzeCount = student.results.filter((r) => r.medal === 'bronze').length;
 
-                  return (
-                    <div key={key} className="overflow-hidden rounded-lg bg-white shadow-sm">
-                      <button
-                        onClick={() => toggleStudent(key)}
-                        className="flex w-full items-center justify-between p-4 text-left"
-                      >
-                        <div className="flex min-w-0 flex-1 items-center gap-3">
-                          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
-                            {!imgErrors.has(key) ? (
-                              <Image
-                                src={student.image}
-                                alt={student.name}
-                                fill
-                                className="object-cover"
-                                onError={() => setImgErrors((prev) => new Set(prev).add(key))}
-                              />
-                            ) : (
-                              <div className="flex h-full w-full items-center justify-center">
-                                <User size={20} className="text-gray-400" />
-                              </div>
-                            )}
+              return (
+                <div key={key} className="overflow-hidden rounded-lg bg-white shadow-sm">
+                  <button
+                    onClick={() => toggleStudent(key)}
+                    className="flex w-full items-center justify-between p-4 text-left"
+                  >
+                    <div className="flex min-w-0 flex-1 items-center gap-3">
+                      <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gray-100">
+                        {!imgErrors.has(key) ? (
+                          <Image
+                            src={student.image}
+                            alt={student.name}
+                            fill
+                            className="object-cover"
+                            onError={() => setImgErrors((prev) => new Set(prev).add(key))}
+                          />
+                        ) : (
+                          <div className="flex h-full w-full items-center justify-center">
+                            <User size={20} className="text-gray-400" />
                           </div>
-                          <div className="min-w-0">
-                            <span className="font-bold text-black">{student.name}, {student.age}</span>
-                            <span className="ml-2 text-sm text-dark-gray">
-                              {goldCount > 0 && `🥇×${goldCount} `}
-                              {silverCount > 0 && `🥈×${silverCount} `}
-                              {bronzeCount > 0 && `🥉×${bronzeCount}`}
-                            </span>
-                          </div>
-                        </div>
-                        <ChevronDown
-                          size={20}
-                          className={`ml-2 shrink-0 text-dark-gray transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                        />
-                      </button>
-                      {isOpen && (
-                        <div className="border-t border-gray-100 px-4 pb-4 pt-2 space-y-1">
-                          {student.results.map((r, i) => (
-                            <p key={i} className="text-sm text-dark-gray">
-                              • {r.tournament} {medalEmoji[r.medal]}
-                            </p>
-                          ))}
-                        </div>
-                      )}
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <span className="font-bold text-black">{student.name}</span>
+                        <span className="ml-2 text-sm text-dark-gray">
+                          {goldCount > 0 && `🥇×${goldCount} `}
+                          {silverCount > 0 && `🥈×${silverCount} `}
+                          {bronzeCount > 0 && `🥉×${bronzeCount}`}
+                        </span>
+                      </div>
                     </div>
-                  );
-                })}
-              </div>}
-            </div>
-          ))}
+                    <ChevronDown
+                      size={20}
+                      className={`ml-2 shrink-0 text-dark-gray transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="border-t border-gray-100 px-4 pb-4 pt-2 space-y-1">
+                      {student.results.map((r, i) => (
+                        <p key={i} className="text-sm text-dark-gray">
+                          • {r.tournament} {medalEmoji[r.medal]}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
