@@ -12,6 +12,11 @@ export const trainingLocations: TrainingLocation[] = [
         time: '4:00 PM - 6:00 PM',
       },
       {
+        day: { en: 'Saturday', zh: '星期六', ms: 'Sabtu' },
+        time: '10:00 AM - 12:00 PM',
+        isNew: true,
+      },
+      {
         day: { en: 'Sunday', zh: '星期日', ms: 'Ahad' },
         time: '3:00 PM - 5:00 PM',
       },

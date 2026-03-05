@@ -18,6 +18,7 @@ export interface TrainingLocation {
   sessions: {
     day: Record<Language, string>;
     time: string;
+    isNew?: boolean;
   }[];
 }
 

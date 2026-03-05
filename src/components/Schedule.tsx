@@ -56,6 +56,11 @@ export default function Schedule({ language }: ScheduleProps) {
                         <Clock size={16} className="shrink-0 text-gold" />
                         <span className="font-medium">{session.day[language]}</span>
                         <span className="text-sm">{session.time}</span>
+                        {session.isNew && (
+                          <span className="rounded-full bg-gold px-2 py-0.5 text-xs font-bold text-white">
+                            NEW
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>
