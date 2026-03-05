@@ -224,7 +224,7 @@ export const studentAchievements: StudentAchievement[] = [
   {
     name: 'Lai Yoke Yeong',
     age: '18',
-    image: '/images/students/lai_yoke_yeong.jpeg',
+    image: '/images/students/lai_loke_yeong.jpeg',
     results: [
       { tournament: 'TF Apparel X CSBA Championship 2025: Boy Double Under 18', medal: 'gold' },
       { tournament: 'MSSD Klang 2025: Boy Double Under 18', medal: 'bronze' },
