@@ -1,97 +1,27 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
-import { Trophy, ChevronDown, ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { X, ChevronDown, User } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
-import { studentAchievements } from '@/data/achievements';
+import { studentAchievements, StudentAchievement } from '@/data/achievements';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface AchievementsProps {
   language: Language;
 }
 
-type PlacementType = 'champion' | '1st_runner_up' | '2nd_runner_up';
-
-const placementStyles: Record<PlacementType, { bg: string; text: string; border: string }> = {
-  champion: { bg: 'bg-gold/10', text: 'text-gold', border: 'border-gold' },
-  '1st_runner_up': { bg: 'bg-gray-100', text: 'text-gray-500', border: 'border-gray-400' },
-  '2nd_runner_up': { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-600' },
-};
-
-const placementLabel: Record<PlacementType, Record<Language, string>> = {
-  champion: { en: 'Champion', zh: '冠军', ms: 'Juara' },
-  '1st_runner_up': { en: '1st Runner-up', zh: '亚军', ms: 'Naib Johan' },
-  '2nd_runner_up': { en: '2nd Runner-up', zh: '季军', ms: 'Naib Johan Kedua' },
-};
-
-const achievements = [
-  {
-    id: '1',
-    image: '/images/student_achievements/Tan_Jayden_Kejohanan_Badminton_Piala_Datuk_Bandar_MBDK_2025_Boy_Double_13_Champion.jpeg',
-    placement: 'champion' as PlacementType,
-    name: 'Tan Jayden',
-    category: {
-      en: 'Boy Double U13',
-      zh: '男子U13双打',
-      ms: 'Beregu Lelaki B13',
-    },
-    tournament: {
-      en: 'Kejohanan Badminton Piala Datuk Bandar MBDK 2025',
-      zh: '2025年MBDK拿督市长杯羽毛球锦标赛',
-      ms: 'Kejohanan Badminton Piala Datuk Bandar MBDK 2025',
-    },
-  },
-  {
-    id: '2',
-    image: '/images/student_achievements/Chang_Sven_Sen_Astrox_Tournament_2026_2nd_Runner_up.jpeg',
-    placement: '2nd_runner_up' as PlacementType,
-    name: 'Chang Sven Sen',
-    category: {
-      en: '',
-      zh: '',
-      ms: '',
-    },
-    tournament: {
-      en: 'Astrox Tournament 2026',
-      zh: '2026年Astrox锦标赛',
-      ms: 'Kejohanan Astrox 2026',
-    },
-  },
-  {
-    id: '3',
-    image: '/images/student_achievements/Lim_Jayden_Klang_Master_Challenge_Badminton_Tournament_2026_Boy_Double_17_1st_Runner_Up.jpeg',
-    placement: '1st_runner_up' as PlacementType,
-    name: 'Lim Jayden',
-    category: {
-      en: 'Boy Double U17',
-      zh: '男子U17双打',
-      ms: 'Beregu Lelaki B17',
-    },
-    tournament: {
-      en: 'Klang Master Challenge Badminton Tournament 2026',
-      zh: '2026年巴生大师挑战赛羽毛球锦标赛',
-      ms: 'Kejohanan Badminton Klang Master Challenge 2026',
-    },
-  },
-  {
-    id: '4',
-    image: '/images/student_achievements/Lok_Zhi_Hui_Four_Season_Badminton_Championship_Girl_Single_U18_2nd_Runner_Up.jpeg',
-    placement: '2nd_runner_up' as PlacementType,
-    name: 'Lok Zhi Hui',
-    category: {
-      en: 'Girl Single U18',
-      zh: '女子U18单打',
-      ms: 'Perseorangan Perempuan B18',
-    },
-    tournament: {
-      en: 'Four Season Badminton Championship',
-      zh: '四季羽毛球锦标赛',
-      ms: 'Kejohanan Badminton Four Season',
-    },
-  },
+const FEATURED_STUDENT_NAMES = [
+  'Chang Sven Sen',
+  'Tan Jayden',
+  'Lok Zhi Hui',
+  'Muhammad Azim',
+  'Tan Zhen Hong',
+  'Lim Jayden',
+  'Low Zhe Kai',
+  'Lee Siang Yau',
 ];
 
 const medalEmoji = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
@@ -100,11 +30,14 @@ export default function Achievements({ language }: AchievementsProps) {
   const t = translations[language];
   const ref = useScrollReveal<HTMLElement>();
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
-  const [activeCard, setActiveCard] = useState(0);
-  const [isCardTransitioning, setIsCardTransitioning] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState<StudentAchievement | null>(null);
   const [openStudents, setOpenStudents] = useState<Set<string>>(new Set());
   const [openGroups, setOpenGroups] = useState<Set<string>>(new Set(['junior', 'senior']));
   const [imgErrors, setImgErrors] = useState<Set<string>>(new Set());
+
+  const featuredStudents = FEATURED_STUDENT_NAMES.map(
+    (name) => studentAchievements.find((s) => s.name === name)!
+  );
 
   const toggleStudent = (index: string) => {
     setOpenStudents((prev) => {
@@ -117,27 +50,6 @@ export default function Achievements({ language }: AchievementsProps) {
       return next;
     });
   };
-
-  const goToCard = useCallback((index: number) => {
-    setIsCardTransitioning(true);
-    setTimeout(() => {
-      setActiveCard(index);
-      setIsCardTransitioning(false);
-    }, 200);
-  }, []);
-
-  const nextCard = useCallback(() => {
-    goToCard((activeCard + 1) % achievements.length);
-  }, [activeCard, goToCard]);
-
-  const prevCard = useCallback(() => {
-    goToCard((activeCard - 1 + achievements.length) % achievements.length);
-  }, [activeCard, goToCard]);
-
-  useEffect(() => {
-    const timer = setInterval(nextCard, 5000);
-    return () => clearInterval(timer);
-  }, [nextCard]);
 
   const toggleGroup = (key: string) => {
     setOpenGroups((prev) => {
@@ -158,83 +70,63 @@ export default function Achievements({ language }: AchievementsProps) {
           <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
             {t.achievements_title}
           </h2>
-          <div className="mx-auto mt-12 max-w-sm">
-            {(() => {
-              const achievement = achievements[activeCard];
-              const style = placementStyles[achievement.placement];
+
+          {/* Featured Students Grid */}
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+            {featuredStudents.map((student) => {
+              const goldCount = student.results.filter((r) => r.medal === 'gold').length;
+              const silverCount = student.results.filter((r) => r.medal === 'silver').length;
+              const bronzeCount = student.results.filter((r) => r.medal === 'bronze').length;
+              const mostRecent = student.results[0];
+
               return (
-                <div className="relative flex items-center gap-3">
+                <div
+                  key={student.name}
+                  className="flex flex-col items-center rounded-lg border border-gray-100 bg-white p-4 shadow-sm"
+                >
                   <button
-                    onClick={prevCard}
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-dark-gray shadow-sm transition-colors hover:border-gold hover:text-gold"
-                    aria-label="Previous achievement"
+                    onClick={() => setZoomedImage(student.image)}
+                    className="h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-gold/30 cursor-pointer transition-transform hover:scale-105 sm:h-28 sm:w-28"
                   >
-                    <ChevronLeft size={20} />
-                  </button>
-
-                  <div
-                    className={`flex-1 rounded-lg border-2 border-black/15 bg-white p-4 shadow-sm transition-opacity duration-200 ${
-                      isCardTransitioning ? 'opacity-0' : 'opacity-100'
-                    }`}
-                  >
-                    <button
-                      onClick={() => setZoomedImage(achievement.image)}
-                      className="block w-full cursor-pointer overflow-hidden rounded"
-                    >
-                      <div className="relative aspect-square">
-                        <Image
-                          src={achievement.image}
-                          alt={achievement.name}
-                          fill
-                          className="object-cover object-top transition-transform hover:scale-105"
-                        />
+                    {!imgErrors.has(`featured-${student.name}`) ? (
+                      <Image
+                        src={student.image}
+                        alt={student.name}
+                        width={112}
+                        height={112}
+                        className="h-full w-full object-cover object-top"
+                        onError={() =>
+                          setImgErrors((prev) => new Set(prev).add(`featured-${student.name}`))
+                        }
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-gray-100">
+                        <User size={32} className="text-gray-400" />
                       </div>
-                    </button>
-                    <div className="mt-3 text-center">
-                      <p className="text-base font-bold text-black">{achievement.name}</p>
-                      <p className="mt-1 text-xs text-dark-gray">
-                        {achievement.tournament[language]}
-                      </p>
-                      {achievement.category[language] && (
-                        <p className="mt-0.5 text-xs text-dark-gray">
-                          {achievement.category[language]}
-                        </p>
-                      )}
-                      <span className={`mt-2 inline-flex items-center gap-1 rounded-full ${style.bg} px-3 py-1 text-xs font-bold ${style.text}`}>
-                        <Trophy size={12} />
-                        {placementLabel[achievement.placement][language]}
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={nextCard}
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-dark-gray shadow-sm transition-colors hover:border-gold hover:text-gold"
-                    aria-label="Next achievement"
-                  >
-                    <ChevronRight size={20} />
+                    )}
                   </button>
+                  <h3 className="mt-3 text-center text-sm font-bold text-black sm:text-base">
+                    {student.name}
+                  </h3>
+                  <p className="mt-1 text-center text-xs text-dark-gray">
+                    {goldCount > 0 && `${medalEmoji.gold}×${goldCount} `}
+                    {silverCount > 0 && `${medalEmoji.silver}×${silverCount} `}
+                    {bronzeCount > 0 && `${medalEmoji.bronze}×${bronzeCount}`}
+                  </p>
+                  <p className="mt-1 line-clamp-2 text-center text-xs text-dark-gray">
+                    {mostRecent.tournament}
+                  </p>
+                  <div className="mt-auto pt-3">
+                    <button
+                      onClick={() => setSelectedStudent(student)}
+                      className="min-h-[48px] rounded-full border-2 border-gold px-4 py-2 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-white"
+                    >
+                      {t.achievements_view_more}
+                    </button>
+                  </div>
                 </div>
               );
-            })()}
-
-            <div className="mt-6 flex flex-col items-center gap-3">
-              <div className="flex justify-center gap-2">
-                {achievements.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => goToCard(idx)}
-                    className={`h-3 rounded-full transition-all duration-300 ${
-                      idx === activeCard ? 'w-8 bg-gold' : 'w-3 bg-gray-300 hover:bg-gray-400'
-                    }`}
-                    aria-label={`Achievement ${idx + 1}`}
-                  />
-                ))}
-              </div>
-              <p className="text-xs text-gray-400">
-                {activeCard + 1} / {achievements.length}
-              </p>
-            </div>
+            })}
           </div>
 
           {/* Full Results Accordion */}
@@ -332,6 +224,84 @@ export default function Achievements({ language }: AchievementsProps) {
               fill
               className="rounded-2xl object-contain"
             />
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {/* Student Detail Modal */}
+      {selectedStudent && createPortal(
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 md:items-center md:p-4"
+          onClick={() => setSelectedStudent(null)}
+        >
+          <div
+            className="max-h-[85vh] w-full overflow-y-auto rounded-t-2xl bg-white p-6 md:max-w-lg md:rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-4">
+                <div className="h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-gold/30">
+                  {!imgErrors.has(`modal-${selectedStudent.name}`) ? (
+                    <Image
+                      src={selectedStudent.image}
+                      alt={selectedStudent.name}
+                      width={64}
+                      height={64}
+                      className="h-full w-full object-cover object-top"
+                      onError={() =>
+                        setImgErrors((prev) => new Set(prev).add(`modal-${selectedStudent.name}`))
+                      }
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-gray-100">
+                      <User size={28} className="text-gray-400" />
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black">{selectedStudent.name}</h3>
+                  <p className="text-sm text-dark-gray">
+                    {(() => {
+                      const g = selectedStudent.results.filter((r) => r.medal === 'gold').length;
+                      const s = selectedStudent.results.filter((r) => r.medal === 'silver').length;
+                      const b = selectedStudent.results.filter((r) => r.medal === 'bronze').length;
+                      return (
+                        <>
+                          {g > 0 && `${medalEmoji.gold}×${g} `}
+                          {s > 0 && `${medalEmoji.silver}×${s} `}
+                          {b > 0 && `${medalEmoji.bronze}×${b}`}
+                        </>
+                      );
+                    })()}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedStudent(null)}
+                className="shrink-0 p-2"
+                aria-label="Close"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            <h4 className="mt-6 font-bold text-black">{t.achievements_full_results}</h4>
+            <ul className="mt-2 space-y-2">
+              {selectedStudent.results.map((r, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-sm text-dark-gray">
+                  <span className="mt-0.5 shrink-0">{medalEmoji[r.medal]}</span>
+                  {r.tournament}
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => setSelectedStudent(null)}
+              className="mt-6 w-full min-h-[48px] rounded-full bg-gold px-4 py-2 font-semibold text-white transition-colors hover:bg-gold-dark"
+            >
+              {t.achievements_close}
+            </button>
           </div>
         </div>,
         document.body
