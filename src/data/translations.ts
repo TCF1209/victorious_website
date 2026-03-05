@@ -166,7 +166,7 @@ export const translations: Record<Language, TranslationKeys> = {
     contact_success: 'Thank you! We will contact you soon.',
     contact_select_location: 'Select a location',
 
-    footer_tagline: 'Building Future Champions',
+    footer_tagline: "Let's Strive Together",
     footer_quick_links: 'Quick Links',
     footer_contact_info: 'Contact Info',
     footer_locations: 'Training Locations',
@@ -245,7 +245,7 @@ export const translations: Record<Language, TranslationKeys> = {
     contact_success: '谢谢！我们会尽快与您联系。',
     contact_select_location: '选择地点',
 
-    footer_tagline: '培养未来冠军',
+    footer_tagline: '让我们一起奋斗',
     footer_quick_links: '快速链接',
     footer_contact_info: '联系信息',
     footer_locations: '训练地点',
@@ -324,7 +324,7 @@ export const translations: Record<Language, TranslationKeys> = {
     contact_success: 'Terima kasih! Kami akan menghubungi anda segera.',
     contact_select_location: 'Pilih lokasi',
 
-    footer_tagline: 'Membentuk Juara Masa Depan',
+    footer_tagline: 'Mari Berusaha Bersama',
     footer_quick_links: 'Pautan Pantas',
     footer_contact_info: 'Maklumat Hubungan',
     footer_locations: 'Lokasi Latihan',
