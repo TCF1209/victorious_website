@@ -115,8 +115,8 @@ export const translations: Record<Language, TranslationKeys> = {
     about_p2: 'We offer high-quality training for all levels — from beginners to high-performing athletes.',
 
     why_title: 'Why Choose Us',
-    why_certified: 'Certified Coaches',
-    why_certified_desc: 'All our coaches are BAM-certified with years of competitive and coaching experience.',
+    why_certified: 'Experienced Coaches',
+    why_certified_desc: 'Led by a BAM-certified head coach, our coaching team brings years of competitive tournament experience and hands-on training expertise.',
     why_small_class: 'Small Class Sizes',
     why_small_class_desc: 'Maximum 6 students per group ensures personalized attention and faster improvement.',
     why_competition: 'Competition Track Record',
@@ -194,8 +194,8 @@ export const translations: Record<Language, TranslationKeys> = {
     about_p2: '我们为所有水平的学生提供高质量的训练——从初学者到高水平运动员。',
 
     why_title: '为什么选择我们',
-    why_certified: '认证教练',
-    why_certified_desc: '我们所有教练均获得 BAM 认证，拥有多年竞技和执教经验。',
+    why_certified: '经验丰富的教练',
+    why_certified_desc: '由BAM认证的主教练领衔，我们的教练团队拥有多年竞技比赛经验和丰富的实战训练专长。',
     why_small_class: '小班教学',
     why_small_class_desc: '每组最多6名学生，确保个性化关注和更快进步。',
     why_competition: '比赛成绩',
@@ -273,8 +273,8 @@ export const translations: Record<Language, TranslationKeys> = {
     about_p2: 'Kami menawarkan latihan berkualiti tinggi untuk semua peringkat — dari pemula hingga atlet berprestasi tinggi.',
 
     why_title: 'Mengapa Pilih Kami',
-    why_certified: 'Jurulatih Bertauliah',
-    why_certified_desc: 'Semua jurulatih kami bertauliah BAM dengan pengalaman bertanding dan melatih selama bertahun-tahun.',
+    why_certified: 'Jurulatih Berpengalaman',
+    why_certified_desc: 'Diketuai oleh ketua jurulatih bertauliah BAM, pasukan jurulatih kami membawa pengalaman bertanding bertahun-tahun dan kepakaran latihan secara langsung.',
     why_small_class: 'Kelas Kecil',
     why_small_class_desc: 'Maksimum 6 pelajar setiap kumpulan memastikan perhatian peribadi dan peningkatan lebih cepat.',
     why_competition: 'Rekod Pertandingan',
