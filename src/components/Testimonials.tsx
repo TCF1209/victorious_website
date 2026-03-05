@@ -91,9 +91,9 @@ const testimonials = [
     name: 'Alicia Khor',
     date: 'Jul 2024',
     description: {
-      en: 'Parent of two children competing at school and external Bakat Baru level',
-      zh: '两个孩子在学校和外部Bakat Baru级别比赛的家长',
-      ms: 'Ibu bapa kepada dua anak yang bertanding di peringkat sekolah dan Bakat Baru',
+      en: 'Adult player looking to improve further',
+      zh: '希望进一步提升的成人球员',
+      ms: 'Pemain dewasa yang ingin meningkatkan lagi',
     },
     quote: {
       en: 'Thank you, Coach Hong Woon, for your guidance and dedication all this while. ❤️❤️❤️',
