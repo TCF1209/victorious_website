@@ -116,6 +116,21 @@ const testimonials = [
       ms: 'I am truly grateful for your coaching and guidance over these two years. Under your training, my badminton skills have improved tremendously. You have always been so kind and supportive — thank you so much, Coach!',
     },
   },
+  {
+    id: '8',
+    name: 'Jamie',
+    date: 'Sep 2025',
+    description: {
+      en: 'Parent whose son competes at both state and national level including winning MSSD, MSSS, MSSM',
+      zh: '儿子在州级和国家级比赛中竞争并赢得MSSD、MSSS、MSSM的家长',
+      ms: 'Ibu bapa yang anaknya bertanding di peringkat negeri dan kebangsaan termasuk memenangi MSSD, MSSS, MSSM',
+    },
+    quote: {
+      en: '谢谢教练这两个星期的训练，明天梓栋就要出发去怡宝准备MSSM的比赛了，希望他可以在那个比赛中发挥出色，不要令你失望💕',
+      zh: '谢谢教练这两个星期的训练，明天梓栋就要出发去怡宝准备MSSM的比赛了，希望他可以在那个比赛中发挥出色，不要令你失望💕',
+      ms: '谢谢教练这两个星期的训练，明天梓栋就要出发去怡宝准备MSSM的比赛了，希望他可以在那个比赛中发挥出色，不要令你失望💕',
+    },
+  },
 ];
 
 export default function Testimonials({ language }: TestimonialsProps) {
