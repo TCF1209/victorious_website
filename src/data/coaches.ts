@@ -21,7 +21,7 @@ export const coaches: Coach[] = [
         'Head Coach of SJKC Pui Ying Badminton Team (2014-2019)',
         'Head Coach of SJKC Chung Hua Klang (2014-2019)',
         'Professional Training under Mr Yap Khim Hock, Former Malaysia Badminton Chief Coach & 1996 Olympic Silver Medalist',
-        'Sponsored by Protech Sports Malaysia (2021 – Present)',
+        'Sponsored by Protech Sports Malaysia (2021–Present)',
       ],
       zh: [
         'BAM 一级教练认证',
@@ -39,11 +39,11 @@ export const coaches: Coach[] = [
         'Bekas Pemain Negeri Selangor',
         'Pemain Liga Ungu Antarabangsa (2014/15 & 2015/16)',
         '13 Tahun Pengalaman Melatih',
-        'Ketua Jurulatih SJKC Pandamaran B (2025 – Kini)',
+        'Ketua Jurulatih SJKC Pandamaran B (2025–Kini)',
         'Ketua Jurulatih Pasukan Badminton SJKC Pui Ying (2014-2019)',
         'Ketua Jurulatih SJKC Chung Hua Klang (2014-2019)',
         'Latihan profesional di bawah En. Yap Khim Hock, Bekas Ketua Jurulatih Badminton Malaysia & Peraih Pingat Perak Olimpik 1996',
-        'Ditaja oleh Protech Sports Malaysia (2021 – Kini)',
+        'Ditaja oleh Protech Sports Malaysia (2021–Kini)',
       ],
     },
     tournamentResults: [
@@ -96,7 +96,7 @@ export const coaches: Coach[] = [
         'Assistant Coach of SJKC Pandamaran B (2025–Present)',
         'Assistant Coach of SJKC Pui Ying Badminton Team (2014-2019)',
         'Assistant Coach of SJKC Chung Hua Klang (2014-2019)',
-        'Sponsored by Protech Sports Malaysia (2021 – Present)',
+        'Sponsored by Protech Sports Malaysia (2021–Present)',
       ],
       zh: [
         '10年执教经验',
@@ -110,7 +110,7 @@ export const coaches: Coach[] = [
         'Jurulatih Pembantu SJKC Pandamaran B (2025–Kini)',
         'Jurulatih Pembantu Pasukan Badminton SJKC Pui Ying (2014-2019)',
         'Jurulatih Pembantu SJKC Chung Hua Klang (2014-2019)',
-        'Ditaja oleh Protech Sports Malaysia (2021 – Kini)',
+        'Ditaja oleh Protech Sports Malaysia (2021–Kini)',
       ],
     },
     tournamentResults: [
