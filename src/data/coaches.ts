@@ -31,7 +31,7 @@ export const coaches: Coach[] = [
         'SJKC Pandamaran B 主教练 (2025至今)',
         'SJKC Pui Ying 羽毛球队主教练 (2014-2019)',
         'SJKC Chung Hua Klang 主教练 (2014-2019)',
-        '师从 Yap Khim Hock 先生，前马来西亚羽毛球总教练及1996年奥运银牌得主',
+        '受训于 Yap Khim Hock 先生，前马来西亚羽毛球总教练及1996年奥运银牌得主',
         '由 Protech Sports Malaysia 赞助 (2021至今)',
       ],
       ms: [
@@ -76,7 +76,7 @@ export const coaches: Coach[] = [
     ],
     bio: {
       en: 'Coach Yew Hong Woon brings over a decade of coaching experience combined with his background as a former Selangor state player and International Purple League competitor. Trained under Mr Yap Khim Hock, former Malaysia Badminton Chief Coach and 1996 Olympic Silver Medalist, his deep understanding of competitive badminton and passion for youth development has helped shape the academy into what it is today.',
-      zh: 'Yew Hong Woon 教练拥有超过十年的教练经验，加上他作为前雪兰莪州队球员和国际紫色联赛选手的背景。师从前马来西亚羽毛球总教练及1996年奥运银牌得主 Yap Khim Hock 先生，他对竞技羽毛球的深刻理解和对青少年发展的热情，帮助学院发展成今天的规模。',
+      zh: 'Yew Hong Woon 教练拥有超过十年的教练经验，加上他作为前雪兰莪州队球员和国际紫色联赛选手的背景。受训于前马来西亚羽毛球总教练及1996年奥运银牌得主 Yap Khim Hock 先生，他对竞技羽毛球的深刻理解和对青少年发展的热情，帮助学院发展成今天的规模。',
       ms: 'Jurulatih Yew Hong Woon membawa lebih sedekad pengalaman melatih bersama latar belakangnya sebagai bekas pemain negeri Selangor dan peserta Liga Ungu Antarabangsa. Dilatih di bawah En. Yap Khim Hock, bekas Ketua Jurulatih Badminton Malaysia dan peraih Pingat Perak Olimpik 1996, pemahaman mendalam beliau tentang badminton kompetitif dan semangat untuk pembangunan belia telah membantu membentuk akademi seperti hari ini.',
     },
   },
