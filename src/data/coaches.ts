@@ -17,10 +17,11 @@ export const coaches: Coach[] = [
         'Former Selangor State Player',
         'International Purple League Player (2014/15 & 2015/16)',
         '13 Years Coaching Experience',
-        'Head Coach of SJKC Pandamaran B (2025 – Present)',
+        'Head Coach of SJKC Pandamaran B (2025–Present)',
         'Head Coach of SJKC Pui Ying Badminton Team (2014-2019)',
         'Head Coach of SJKC Chung Hua Klang (2014-2019)',
         'Professional Training under Mr Yap Khim Hock, Former Malaysia Badminton Chief Coach & 1996 Olympic Silver Medalist',
+        'Sponsored by Protech Sports Malaysia (2021 – Present)',
       ],
       zh: [
         'BAM 一级教练认证',
@@ -31,6 +32,7 @@ export const coaches: Coach[] = [
         'SJKC Pui Ying 羽毛球队主教练 (2014-2019)',
         'SJKC Chung Hua Klang 主教练 (2014-2019)',
         '师从 Yap Khim Hock 先生，前马来西亚羽毛球总教练及1996年奥运银牌得主',
+        '由 Protech Sports Malaysia 赞助 (2021至今)',
       ],
       ms: [
         'Sijil Kejurulatihan BAM Tahap 1',
@@ -41,6 +43,7 @@ export const coaches: Coach[] = [
         'Ketua Jurulatih Pasukan Badminton SJKC Pui Ying (2014-2019)',
         'Ketua Jurulatih SJKC Chung Hua Klang (2014-2019)',
         'Latihan profesional di bawah En. Yap Khim Hock, Bekas Ketua Jurulatih Badminton Malaysia & Peraih Pingat Perak Olimpik 1996',
+        'Ditaja oleh Protech Sports Malaysia (2021 – Kini)',
       ],
     },
     tournamentResults: [
@@ -90,21 +93,24 @@ export const coaches: Coach[] = [
     credentials: {
       en: [
         '10 Years Coaching Experience',
-        'Assistant Coach of SJKC Pandamaran B (2025 – Present)',
+        'Assistant Coach of SJKC Pandamaran B (2025–Present)',
         'Assistant Coach of SJKC Pui Ying Badminton Team (2014-2019)',
         'Assistant Coach of SJKC Chung Hua Klang (2014-2019)',
+        'Sponsored by Protech Sports Malaysia (2021 – Present)',
       ],
       zh: [
         '10年执教经验',
         'SJKC Pandamaran B 助理教练 (2025至今)',
         'SJKC Pui Ying 羽毛球队助理教练 (2014-2019)',
         'SJKC Chung Hua Klang 助理教练 (2014-2019)',
+        '由 Protech Sports Malaysia 赞助 (2021至今)',
       ],
       ms: [
         '10 Tahun Pengalaman Melatih',
-        'Jurulatih Pembantu SJKC Pandamaran B (2025 – Kini)',
+        'Jurulatih Pembantu SJKC Pandamaran B (2025–Kini)',
         'Jurulatih Pembantu Pasukan Badminton SJKC Pui Ying (2014-2019)',
         'Jurulatih Pembantu SJKC Chung Hua Klang (2014-2019)',
+        'Ditaja oleh Protech Sports Malaysia (2021 – Kini)',
       ],
     },
     tournamentResults: [
@@ -287,7 +293,7 @@ export const coaches: Coach[] = [
       en: [
         'Former District Klang Player',
         '13 Years Coaching Experience',
-        'Head Coach of SJKC Pandamaran B School Team (2025 – Present)',
+        'Head Coach of SJKC Pandamaran B School Team (2025-Present)',
         'Assistant Coach of SJK(C) Chung Hua Kota Kemuning (2013-2017)',
         'Assistant Coach of SJK(C) Jenjarom (2013-2014)',
       ],
@@ -301,7 +307,7 @@ export const coaches: Coach[] = [
       ms: [
         'Bekas Pemain Daerah Klang',
         '13 Tahun Pengalaman Melatih',
-        'Ketua Jurulatih Pasukan Sekolah SJKC Pandamaran B (2025 – Kini)',
+        'Ketua Jurulatih Pasukan Sekolah SJKC Pandamaran B (2025-Kini)',
         'Jurulatih Pembantu SJK(C) Chung Hua Kota Kemuning (2013-2017)',
         'Jurulatih Pembantu SJK(C) Jenjarom (2013-2014)',
       ],
