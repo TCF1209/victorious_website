@@ -14,7 +14,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Victorious Badminton Academy",
-  description: "Professional badminton training academy - Building Future Champions. Training locations in Bukit Tinggi, Setia Alam, and YTP Sports Arena.",
+  description: "Professional badminton training academy - Let's Strive Together. Training locations in Bukit Tinggi, Setia Alam, and YTP Sports Arena.",
+  openGraph: {
+    title: "Victorious Badminton Academy",
+    description: "Professional badminton training academy - Let's Strive Together. Training locations in Bukit Tinggi, Setia Alam, and YTP Sports Arena.",
+    images: [
+      {
+        url: '/images/victorious_logo.jpeg',
+        width: 512,
+        height: 512,
+        alt: 'Victorious Badminton Academy Logo',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
