@@ -128,7 +128,7 @@ export const coaches: Coach[] = [
     name: 'Lok Hong Wei',
     title: {
       en: 'Senior Coach',
-      zh: '高级教练',
+      zh: '资深教练',
       ms: 'Jurulatih Kanan',
     },
     role: 'senior',
@@ -165,7 +165,7 @@ export const coaches: Coach[] = [
     name: 'Khoo Jia Le',
     title: {
       en: 'Senior Coach',
-      zh: '高级教练',
+      zh: '资深教练',
       ms: 'Jurulatih Kanan',
     },
     role: 'senior',
@@ -202,7 +202,7 @@ export const coaches: Coach[] = [
     name: 'Tang Chye Fong',
     title: {
       en: 'Senior Coach',
-      zh: '高级教练',
+      zh: '资深教练',
       ms: 'Jurulatih Kanan',
     },
     role: 'senior',
@@ -249,7 +249,7 @@ export const coaches: Coach[] = [
     name: 'Tan Pek Kar',
     title: {
       en: 'Senior Coach',
-      zh: '高级教练',
+      zh: '资深教练',
       ms: 'Jurulatih Kanan',
     },
     role: 'senior',
@@ -284,7 +284,7 @@ export const coaches: Coach[] = [
     name: 'Lim Chun Hong',
     title: {
       en: 'Senior Coach',
-      zh: '高级教练',
+      zh: '资深教练',
       ms: 'Jurulatih Kanan',
     },
     role: 'senior',
