@@ -13,6 +13,7 @@ import Achievements from '@/components/Achievements';
 import Testimonials from '@/components/Testimonials';
 import Videos from '@/components/Videos';
 import Contact from '@/components/Contact';
+import Activities from '@/components/Activities';
 import Footer from '@/components/Footer';
 import FloatingSocials from '@/components/FloatingSocials';
 
@@ -32,6 +33,7 @@ export default function Home() {
         <Achievements language={language} />
         <Testimonials language={language} />
         <Videos language={language} />
+        <Activities language={language} />
         <Contact language={language} />
       </main>
       <Footer language={language} />

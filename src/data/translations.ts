@@ -84,6 +84,12 @@ type TranslationKeys = {
   contact_success: string;
   contact_select_location: string;
 
+  // Activities
+  activities_title: string;
+  activities_annual_dinner: string;
+  activities_short_trip: string;
+  activities_friendly_match: string;
+
   // Footer
   footer_tagline: string;
   footer_quick_links: string;
@@ -166,6 +172,11 @@ export const translations: Record<Language, TranslationKeys> = {
     contact_success: 'Thank you! We will contact you soon.',
     contact_select_location: 'Select a location',
 
+    activities_title: 'Victorious BA Activities',
+    activities_annual_dinner: 'Annual Dinner',
+    activities_short_trip: 'Short Trip',
+    activities_friendly_match: 'Friendly Match',
+
     footer_tagline: "Let's Strive Together",
     footer_quick_links: 'Quick Links',
     footer_contact_info: 'Contact Info',
@@ -245,6 +256,11 @@ export const translations: Record<Language, TranslationKeys> = {
     contact_success: '谢谢！我们会尽快与您联系。',
     contact_select_location: '选择地点',
 
+    activities_title: 'Victorious BA 活动',
+    activities_annual_dinner: '年度晚宴',
+    activities_short_trip: '短途旅行',
+    activities_friendly_match: '友谊赛',
+
     footer_tagline: '让我们一起奋斗',
     footer_quick_links: '快速链接',
     footer_contact_info: '联系信息',
@@ -323,6 +339,11 @@ export const translations: Record<Language, TranslationKeys> = {
     contact_submit: 'Hantar Pertanyaan',
     contact_success: 'Terima kasih! Kami akan menghubungi anda segera.',
     contact_select_location: 'Pilih lokasi',
+
+    activities_title: 'Aktiviti Victorious BA',
+    activities_annual_dinner: 'Majlis Makan Malam Tahunan',
+    activities_short_trip: 'Lawatan Singkat',
+    activities_friendly_match: 'Perlawanan Persahabatan',
 
     footer_tagline: 'Mari Berusaha Bersama',
     footer_quick_links: 'Pautan Pantas',
