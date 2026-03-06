@@ -179,9 +179,9 @@ export default function Testimonials({ language }: TestimonialsProps) {
               <ChevronLeft size={20} />
             </button>
 
-            {/* Quote card */}
+            {/* Quote card - min-h prevents layout shift when quotes have different lengths */}
             <div
-              className={`relative flex-1 rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-opacity duration-200 ${
+              className={`relative flex-1 rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-opacity duration-200 min-h-[280px] sm:min-h-[240px] flex flex-col justify-center ${
                 isTransitioning ? 'opacity-0' : 'opacity-100'
               }`}
             >
