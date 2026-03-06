@@ -101,7 +101,7 @@ function ImageCarousel({
         {/* Photo card - only current image rendered, instant swap */}
         <div
           className="relative flex-1 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
-          style={{ contain: 'layout size' }}
+          style={{ contain: 'layout' }}
         >
           <div className="relative aspect-[4/3] w-full">
             <Image
