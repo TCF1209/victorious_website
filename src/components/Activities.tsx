@@ -98,29 +98,22 @@ function ImageCarousel({
           <ChevronLeft size={20} />
         </button>
 
-        {/* Photo card - all images rendered, only active one visible */}
-        <div className="relative flex-1 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+        {/* Photo card - only current image rendered, instant swap */}
+        <div
+          className="relative flex-1 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm"
+          style={{ contain: 'layout size' }}
+        >
           <div className="relative aspect-[4/3] w-full">
-            {images.map((src, idx) => (
-              <div
-                key={src}
-                className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
-                  idx === activeIndex
-                    ? 'z-10 opacity-100'
-                    : 'z-0 opacity-0'
-                }`}
-              >
-                <Image
-                  src={src}
-                  alt={`${title} photo ${idx + 1}`}
-                  fill
-                  className="cursor-pointer object-cover"
-                  sizes="(max-width: 768px) 100vw, 700px"
-                  priority={idx === 0}
-                  onClick={() => onImageClick(src)}
-                />
-              </div>
-            ))}
+            <Image
+              key={images[activeIndex]}
+              src={images[activeIndex]}
+              alt={`${title} photo ${activeIndex + 1}`}
+              fill
+              className="cursor-pointer object-cover"
+              sizes="(max-width: 768px) 100vw, 700px"
+              priority
+              onClick={() => onImageClick(images[activeIndex])}
+            />
           </div>
         </div>
 
