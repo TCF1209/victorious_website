@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Language } from '@/types';
 import { translations } from '@/data/translations';
@@ -136,35 +136,52 @@ const testimonials = [
 export default function Testimonials({ language }: TestimonialsProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const t = translations[language];
   const ref = useScrollReveal<HTMLElement>();
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const activeIndexRef = useRef(0);
+
+  // Only auto-play when section is visible on screen
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const goTo = useCallback((index: number) => {
     setIsTransitioning(true);
     setTimeout(() => {
       setActiveIndex(index);
+      activeIndexRef.current = index;
       setIsTransitioning(false);
     }, 200);
   }, []);
 
   const next = useCallback(() => {
-    goTo((activeIndex + 1) % testimonials.length);
-  }, [activeIndex, goTo]);
+    goTo((activeIndexRef.current + 1) % testimonials.length);
+  }, [goTo]);
 
   const prev = useCallback(() => {
-    goTo((activeIndex - 1 + testimonials.length) % testimonials.length);
-  }, [activeIndex, goTo]);
+    goTo((activeIndexRef.current - 1 + testimonials.length) % testimonials.length);
+  }, [goTo]);
 
   useEffect(() => {
+    if (!isVisible) return;
     const timer = setInterval(next, 5000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [isVisible, next]);
 
   const testimonial = testimonials[activeIndex];
 
   return (
     <section ref={ref} className="scroll-reveal py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div ref={sectionRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-black sm:text-4xl">
           {t.testimonials_title}
         </h2>
