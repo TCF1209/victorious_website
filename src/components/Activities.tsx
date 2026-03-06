@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -57,28 +57,30 @@ function ImageCarousel({
   onImageClick: (src: string) => void;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const activeIndexRef = useRef(0);
 
   const goTo = useCallback((index: number) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveIndex(index);
-      setIsTransitioning(false);
-    }, 200);
+    setActiveIndex(index);
+    activeIndexRef.current = index;
   }, []);
 
-  const next = useCallback(() => {
-    goTo((activeIndex + 1) % images.length);
-  }, [activeIndex, images.length, goTo]);
-
-  const prev = useCallback(() => {
-    goTo((activeIndex - 1 + images.length) % images.length);
-  }, [activeIndex, images.length, goTo]);
-
+  // Auto-play using ref to avoid re-creating interval on every index change
   useEffect(() => {
-    const timer = setInterval(next, 4000);
+    const timer = setInterval(() => {
+      const nextIndex = (activeIndexRef.current + 1) % images.length;
+      setActiveIndex(nextIndex);
+      activeIndexRef.current = nextIndex;
+    }, 4000);
     return () => clearInterval(timer);
-  }, [next]);
+  }, [images.length]);
+
+  const prev = () => {
+    goTo((activeIndex - 1 + images.length) % images.length);
+  };
+
+  const next = () => {
+    goTo((activeIndex + 1) % images.length);
+  };
 
   return (
     <div>
@@ -96,23 +98,29 @@ function ImageCarousel({
           <ChevronLeft size={20} />
         </button>
 
-        {/* Photo card */}
-        <div
-          className={`relative flex-1 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-opacity duration-200 ${
-            isTransitioning ? 'opacity-0' : 'opacity-100'
-          }`}
-        >
-          <div
-            className="relative aspect-[4/3] w-full cursor-pointer"
-            onClick={() => onImageClick(images[activeIndex])}
-          >
-            <Image
-              src={images[activeIndex]}
-              alt={`${title} photo ${activeIndex + 1}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 700px"
-            />
+        {/* Photo card - all images rendered, only active one visible */}
+        <div className="relative flex-1 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+          <div className="relative aspect-[4/3] w-full">
+            {images.map((src, idx) => (
+              <div
+                key={src}
+                className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                  idx === activeIndex
+                    ? 'z-10 opacity-100'
+                    : 'z-0 opacity-0'
+                }`}
+              >
+                <Image
+                  src={src}
+                  alt={`${title} photo ${idx + 1}`}
+                  fill
+                  className="cursor-pointer object-cover"
+                  sizes="(max-width: 768px) 100vw, 700px"
+                  priority={idx === 0}
+                  onClick={() => onImageClick(src)}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
