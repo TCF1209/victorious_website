@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://www.victoriousbadminton.com";
+const SITE_URL = "https://victorious-website.vercel.app";
 
 export const metadata: Metadata = {
   title: "Victorious Badminton Academy | Badminton Training in Klang Valley",
