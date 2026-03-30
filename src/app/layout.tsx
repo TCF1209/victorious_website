@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://victorious-website.vercel.app";
 
 export const metadata: Metadata = {
+  verification: {
+    google: "oiQosaZZgnMvUbVo8Oz3psJOD1NW6z5HlZuzMJd_zYc",
+  },
   title: "Victorious Badminton Academy | Badminton Training in Klang Valley",
   description:
     "Victorious Badminton Academy offers professional badminton coaching for kids and teens in Klang Valley, Malaysia. Training locations in Bukit Tinggi, Setia Alam & YTP Sports Arena Klang. Join 500+ students and certified coaches. Let's Strive Together!",
