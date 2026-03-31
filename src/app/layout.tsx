@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 const SITE_URL = "https://victorious-website.vercel.app";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/images/victorious_logo.jpeg",
+    apple: "/images/victorious_logo.jpeg",
+  },
   verification: {
     google: "oiQosaZZgnMvUbVo8Oz3psJOD1NW6z5HlZuzMJd_zYc",
   },
