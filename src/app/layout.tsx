@@ -78,6 +78,13 @@ export const metadata: Metadata = {
 };
 
 // JSON-LD structured data for Google rich results
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Victorious Badminton Academy",
+  url: SITE_URL,
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
@@ -122,6 +129,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
