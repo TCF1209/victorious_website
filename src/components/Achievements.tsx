@@ -25,15 +25,7 @@ const FEATURED_STUDENT_NAMES = [
 ];
 
 const FULL_RESULTS_STUDENT_NAMES = [
-  'Lok Zhi Hui',
   'Edwin Lim Chong Hong',
-  'Sebastian Lee',
-  'Tan Jayden',
-  'Lee Siang Yau',
-  'Braydon Tan Jun Wei',
-  'Ian Ng',
-  'Max Ng',
-  'Muhammad Azmi',
   'Ong Yu Xun',
   'Lai Yoke Yeong',
   'Ong Kar Ming',
@@ -52,6 +44,14 @@ const FULL_RESULTS_STUDENT_NAMES = [
   'Lim Aik Yuan',
   'Chew Zhong Jie',
   'Afiq Irfan',
+  'Lok Zhi Hui',
+  'Sebastian Lee',
+  'Tan Jayden',
+  'Lee Siang Yau',
+  'Braydon Tan Jun Wei',
+  'Ian Ng',
+  'Max Ng',
+  'Muhammad Azmi',
 ];
 
 const medalEmoji = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
