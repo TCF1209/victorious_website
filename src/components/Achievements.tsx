@@ -15,18 +15,25 @@ interface AchievementsProps {
 
 const FEATURED_STUDENT_NAMES = [
   'Chang Sven Sen',
-  'Tan Jayden',
-  'Lok Zhi Hui',
-  'Muhammad Azim',
   'Tan Zhen Hong',
   'Lim Jayden',
+  'Muhammad Azim',
+  'Chia Zhi Dong, Selangor State Player',
   'Low Zhe Kai',
-  'Lee Siang Yau',
+  'Jamie Liew Zhi En',
+  'Ong May Jia',
 ];
 
 const FULL_RESULTS_STUDENT_NAMES = [
-  'Chia Zhi Dong, Selangor State Player',
+  'Lok Zhi Hui',
   'Edwin Lim Chong Hong',
+  'Sebastian Lee',
+  'Tan Jayden',
+  'Lee Siang Yau',
+  'Braydon Tan Jun Wei',
+  'Ian Ng',
+  'Max Ng',
+  'Muhammad Azmi',
   'Ong Yu Xun',
   'Lai Yoke Yeong',
   'Ong Kar Ming',
@@ -175,7 +182,7 @@ export default function Achievements({ language }: AchievementsProps) {
                             src={student.image}
                             alt={student.name}
                             fill
-                            className="object-cover"
+                            className={`object-cover ${student.imagePosition === 'top' ? 'object-top' : ''}`}
                             onError={() => setImgErrors((prev) => new Set(prev).add(key))}
                           />
                         ) : (

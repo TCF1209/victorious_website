@@ -151,7 +151,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Close',
 
     achievements_title: 'Student Achievements',
-    achievements_full_results: 'Victorious BA Results (2022-2025)',
+    achievements_full_results: 'Victorious BA Results (2022-2026)',
     achievements_view_more: 'View More',
     achievements_close: 'Close',
 
@@ -235,7 +235,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: '关闭',
 
     achievements_title: '学生成就',
-    achievements_full_results: 'Victorious BA Results (2022-2025)',
+    achievements_full_results: 'Victorious BA Results (2022-2026)',
     achievements_view_more: '查看更多',
     achievements_close: '关闭',
 
@@ -319,7 +319,7 @@ export const translations: Record<Language, TranslationKeys> = {
     coaches_close: 'Tutup',
 
     achievements_title: 'Pencapaian Pelajar',
-    achievements_full_results: 'Victorious BA Results (2022-2025)',
+    achievements_full_results: 'Victorious BA Results (2022-2026)',
     achievements_view_more: 'Lihat Lebih Lanjut',
     achievements_close: 'Tutup',
 
