@@ -25,7 +25,6 @@ const FEATURED_STUDENT_NAMES = [
 ];
 
 const FULL_RESULTS_STUDENT_NAMES = [
-  'Edwin Lim Chong Hong',
   'Ong Yu Xun',
   'Lai Yoke Yeong',
   'Ong Kar Ming',
@@ -45,6 +44,7 @@ const FULL_RESULTS_STUDENT_NAMES = [
   'Chew Zhong Jie',
   'Afiq Irfan',
   'Lok Zhi Hui',
+  'Edwin Lim Chong Hong',
   'Sebastian Lee',
   'Tan Jayden',
   'Lee Siang Yau',
