@@ -17,6 +17,10 @@ export const trainingLocations: TrainingLocation[] = [
         isNew: true,
       },
       {
+        day: { en: 'Saturday', zh: '星期六', ms: 'Sabtu' },
+        time: '3:00 PM - 5:00 PM',
+      },
+      {
         day: { en: 'Sunday', zh: '星期日', ms: 'Ahad' },
         time: '3:00 PM - 5:00 PM',
       },
@@ -47,16 +51,8 @@ export const trainingLocations: TrainingLocation[] = [
         time: '8:00 PM - 10:00 PM',
       },
       {
-        day: { en: 'Saturday', zh: '星期六', ms: 'Sabtu' },
-        time: '3:00 PM - 5:00 PM',
-      },
-      {
         day: { en: 'Sunday', zh: '星期日', ms: 'Ahad' },
         time: '9:00 AM - 11:00 AM',
-      },
-      {
-        day: { en: 'Sunday', zh: '星期日', ms: 'Ahad' },
-        time: '3:00 PM - 5:00 PM',
       },
     ],
   },

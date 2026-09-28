@@ -7,8 +7,6 @@ export interface StudentAchievement {
   name: string;
   age?: string;
   image: string;
-  // Tall, narrow photos: crop the small list avatar from the top so the face shows
-  imagePosition?: 'top';
   results: StudentResult[];
 }
 
@@ -102,8 +100,7 @@ export const studentAchievements: StudentAchievement[] = [
   {
     name: 'Low Zhe Kai',
     age: '11',
-    image: '/images/students/low_zhe_kai_v2.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/low_zhe_kai_2026.jpeg',
     results: [
       { tournament: 'Pro Series Championship Badminton 2026 (Seremban): Boy Single Under 11', medal: 'gold' },
       { tournament: 'Victorious Badminton Championship 2026: Boy Single Under 12', medal: 'bronze' },
@@ -166,8 +163,7 @@ export const studentAchievements: StudentAchievement[] = [
   {
     name: 'Edwin Lim Chong Hong',
     age: '16',
-    image: '/images/students/edwin_lim_chong_hong_v2.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/edwin_lim_chong_hong_2026.jpeg',
     results: [
       { tournament: 'Victorious Badminton Championship 2026: Boy Single Under 16', medal: 'bronze' },
       { tournament: 'Four Season Badminton Championships (R10) 2024: Boy Single Under 14', medal: 'bronze' },
@@ -458,8 +454,7 @@ export const studentAchievements: StudentAchievement[] = [
   },
   {
     name: 'Jamie Liew Zhi En',
-    image: '/images/students/jamie_liew_zhi_en.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/jamie_liew_zhi_en_2026.jpeg',
     results: [
       { tournament: '89 Arena CSBA Junior Badminton Championship 2026: Girl Double Under 13', medal: 'gold' },
       { tournament: '第二十二届八度中羽球团体锦标赛: 女子乙组', medal: 'gold' },
@@ -476,8 +471,7 @@ export const studentAchievements: StudentAchievement[] = [
   },
   {
     name: 'Ian Ng',
-    image: '/images/students/ian_ng.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/ian_ng_max_ng_2026.jpeg',
     results: [
       { tournament: 'Klang Elite Championship 2026: Boy Double Under 12', medal: 'silver' },
       { tournament: 'Victorious Badminton Championship 2026: Boy Single Under 12', medal: 'bronze' },
@@ -485,8 +479,7 @@ export const studentAchievements: StudentAchievement[] = [
   },
   {
     name: 'Braydon Tan Jun Wei',
-    image: '/images/students/braydon_tan_jun_wei.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/braydon_tan_sebastian_lee_2026.jpeg',
     results: [
       { tournament: 'Klang Elite Championship 2026: Boy Double Under 14', medal: 'bronze' },
       { tournament: 'Victorious Badminton Championship 2026: Boy Single Under 14', medal: 'bronze' },
@@ -494,24 +487,21 @@ export const studentAchievements: StudentAchievement[] = [
   },
   {
     name: 'Muhammad Azmi',
-    image: '/images/students/muhammad_azmi.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/muhammad_azmi_2026.jpeg',
     results: [
       { tournament: 'Victorious Badminton Championship 2026: Boy Single Under 10', medal: 'bronze' },
     ],
   },
   {
     name: 'Max Ng',
-    image: '/images/students/max_ng.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/ian_ng_max_ng_2026.jpeg',
     results: [
       { tournament: 'Klang Elite Championship 2026: Boy Double Under 12', medal: 'silver' },
     ],
   },
   {
     name: 'Sebastian Lee',
-    image: '/images/students/sebastian_lee.jpeg',
-    imagePosition: 'top',
+    image: '/images/students/braydon_tan_sebastian_lee_2026.jpeg',
     results: [
       { tournament: 'Klang Elite Championship 2026: Boy Double Under 14', medal: 'bronze' },
       { tournament: 'Titan Cup 1.0 2026: Boy Double Under 14', medal: 'silver' },

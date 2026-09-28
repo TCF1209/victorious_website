@@ -25,6 +25,15 @@ const FEATURED_STUDENT_NAMES = [
 ];
 
 const FULL_RESULTS_STUDENT_NAMES = [
+  'Lok Zhi Hui',
+  'Edwin Lim Chong Hong',
+  'Sebastian Lee',
+  'Tan Jayden',
+  'Lee Siang Yau',
+  'Braydon Tan Jun Wei',
+  'Ian Ng',
+  'Max Ng',
+  'Muhammad Azmi',
   'Ong Yu Xun',
   'Lai Yoke Yeong',
   'Ong Kar Ming',
@@ -43,15 +52,6 @@ const FULL_RESULTS_STUDENT_NAMES = [
   'Lim Aik Yuan',
   'Chew Zhong Jie',
   'Afiq Irfan',
-  'Lok Zhi Hui',
-  'Edwin Lim Chong Hong',
-  'Sebastian Lee',
-  'Tan Jayden',
-  'Lee Siang Yau',
-  'Braydon Tan Jun Wei',
-  'Ian Ng',
-  'Max Ng',
-  'Muhammad Azmi',
 ];
 
 const medalEmoji = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
@@ -182,7 +182,7 @@ export default function Achievements({ language }: AchievementsProps) {
                             src={student.image}
                             alt={student.name}
                             fill
-                            className={`object-cover ${student.imagePosition === 'top' ? 'object-top' : ''}`}
+                            className="object-cover"
                             onError={() => setImgErrors((prev) => new Set(prev).add(key))}
                           />
                         ) : (
